@@ -1,0 +1,2363 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="مدونة العرائش التقنية تقدم أحدث المقالات في تحسين محركات البحث، ووردبريس، بلوجر والتقنيات الحديثة">
+    <meta name="keywords" content="SEO, ووردبريس, بلوجر, تقنية, مدونة">
+    <meta name="author" content="مدونة العرائش التقنية">
+    <title>مدونة العرائش التقنية | أحدث المقالات التقنية</title>
+    <link rel="canonical" href="https://greatxenforo.blogspot.com/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --fb-blue: #1877f2;
+            --fb-blue-dark: #166fe5;
+            --fb-green: #42b72a;
+            --fb-green-dark: #36a420;
+            --fb-light: #f0f2f5;
+            --fb-card-bg: #ffffff;
+            --fb-text-primary: #050505;
+            --fb-text-secondary: #65676b;
+            --fb-divider: #ced0d4;
+            --fb-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            --fb-border-radius: 8px;
+            --fb-transition: all 0.2s ease;
+            --header-height: 56px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            direction: rtl;
+            font-family: 'Tajawal', sans-serif;
+            line-height: 1.6;
+            color: var(--fb-text-primary);
+            background-color: var(--fb-light);
+            overflow-x: hidden;
+            padding-top: var(--header-height);
+        }
+
+        /* الهيدر على شكل فيسبوك */
+        header {
+            background-color: var(--fb-card-bg);
+            color: var(--fb-text-primary);
+            padding: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+            height: var(--header-height);
+            border-bottom: 1px solid var(--fb-divider);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            margin-bottom:40px;
+        }
+        h1 { 
+ color: #288BFF!important;
+        }
+       h2{color:#1642B4 !important;}
+       
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--fb-blue);
+            font-weight: 700;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* شريط البحث على شكل فيسبوك */
+        .search-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 12px;
+            flex-grow: 1;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 8px 16px 8px 40px;
+            border: none;
+            border-radius: 50px;
+            font-family: inherit;
+            font-size: 15px;
+            background-color: var(--fb-light);
+            color: var(--fb-text-primary);
+            transition: var(--fb-transition);
+        }
+
+        .search-input:focus {
+            outline: none;
+            background-color: var(--fb-card-bg);
+            box-shadow: 0 0 0 2px var(--fb-blue);
+        }
+
+        .search-button {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--fb-text-secondary);
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        /* القائمة على شكل فيسبوك */
+        nav.menu {
+            background-color: var(--fb-card-bg);
+            position: fixed;
+            top: var(--header-height);
+            left: 0;
+            right: 0;
+            z-index: 999;
+            height: 50px;
+            border-bottom: 1px solid var(--fb-divider);
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .menu-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-list {
+            display: flex;
+            list-style: none;
+            height: 100%;
+            align-items: center;
+        }
+
+        .menu-link {
+            color: var(--fb-text-secondary);
+            text-decoration: none;
+            padding: 0 16px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: var(--fb-transition);
+            border-bottom: 3px solid transparent;
+        }
+
+        .menu-link:hover, .menu-link.active {
+            color: var(--fb-blue);
+            border-bottom-color: var(--fb-blue);
+            background-color: rgba(0, 0, 0, 0.03);
+        }
+
+        /* المحتوى الرئيسي على شكل فيسبوك */
+        main {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 16px;
+            display: grid;
+            grid-template-columns: 280px 1fr 280px;
+            gap: 20px;
+        }
+
+        /* العمود الأيسر - مشابه لفيسبوك */
+        .left-sidebar {
+            position: sticky;
+            top: calc(var(--header-height) + 50px);
+            height: calc(100vh - var(--header-height) - 50px - 40px);
+            overflow-y: auto;
+            padding-right: 8px;
+        }
+
+        .sidebar-section {
+            background-color: var(--fb-card-bg);
+            border-radius: var(--fb-border-radius);
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: var(--fb-shadow);
+        }
+
+        .sidebar-title {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--fb-text-secondary);
+        }
+
+        .sidebar-menu {
+            list-style: none;
+        }
+
+        .sidebar-menu li {
+            margin-bottom: 4px;
+        }
+
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            border-radius: var(--fb-border-radius);
+            text-decoration: none;
+            color: var(--fb-text-primary);
+            transition: var(--fb-transition);
+        }
+
+        .sidebar-menu a:hover {
+            background-color: var(--fb-light);
+        }
+
+        .sidebar-menu i {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--fb-light);
+            border-radius: 50%;
+            margin-left: 8px;
+            color: var(--fb-blue);
+        }
+
+        /* منشورات المدونة على شكل فيسبوك */
+        .content-column {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .post-card {
+            background-color: var(--fb-card-bg);
+            border-radius: var(--fb-border-radius);
+            box-shadow: var(--fb-shadow);
+            overflow: hidden;
+        }
+
+        .post-header {
+          margin:40px auto;
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+        }
+
+        .post-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-left: 8px;
+        }
+
+        .post-author {
+            flex-grow: 1;
+        }
+
+        .post-author-name {
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--fb-text-primary);
+        }
+
+        .post-time {
+            font-size: 13px;
+            color: var(--fb-text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .post-time i {
+            font-size: 12px;
+        }
+
+        .post-more {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--fb-transition);
+        }
+
+        .post-more:hover {
+            background-color: var(--fb-light);
+        }
+
+        .post-content {
+            margin:40px auto;
+            padding: 0 16px 12px;
+        }
+
+        .post-text {
+            margin-bottom: 12px;
+            font-size: 15px;
+            line-height: 1.4;
+        }
+
+        .post-image {
+            width: 100%;
+            border-radius: var(--fb-border-radius);
+            max-height: 500px;
+            object-fit: cover;
+            margin-bottom: 12px;
+        }
+
+        .post-stats {
+            display: flex;
+            align-items: center;
+            padding: 8px 16px;
+            border-top: 1px solid var(--fb-divider);
+            border-bottom: 1px solid var(--fb-divider);
+            color: var(--fb-text-secondary);
+            font-size: 15px;
+        }
+
+        .post-likes {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .post-likes i {
+            font-size: 16px;
+            color: var(--fb-blue);
+            margin-left: 4px;
+        }
+
+        .post-comments-count {
+            margin-left: 8px;
+        }
+
+        .post-actions {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            padding: 4px 0;
+        }
+
+        .post-action {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+            border-radius: var(--fb-border-radius);
+            cursor: pointer;
+            transition: var(--fb-transition);
+            color: var(--fb-text-secondary);
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .post-action:hover {
+            background-color: var(--fb-light);
+        }
+
+        .post-action i {
+            margin-left: 8px;
+            font-size: 18px;
+        }
+
+        /* العمود الأيمن - مشابه لفيسبوك */
+        .right-sidebar {
+            position: sticky;
+            top: calc(var(--header-height) + 50px);
+            height: calc(100vh - var(--header-height) - 50px - 40px);
+            overflow-y: auto;
+            padding-left: 8px;
+        }
+
+        .sponsored-card {
+            background-color: var(--fb-card-bg);
+            border-radius: var(--fb-border-radius);
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: var(--fb-shadow);
+        }
+
+        .sponsored-title {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--fb-text-secondary);
+        }
+
+        .sponsored-item {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            border-radius: var(--fb-border-radius);
+            margin-bottom: 8px;
+            transition: var(--fb-transition);
+            cursor: pointer;
+        }
+
+        .sponsored-item:hover {
+            background-color: var(--fb-light);
+        }
+
+        .sponsored-image {
+            width: 100px;
+            height: 100px;
+            border-radius: var(--fb-border-radius);
+            object-fit: cover;
+            margin-left: 8px;
+        }
+
+        .sponsored-info {
+            flex-grow: 1;
+        }
+
+        .sponsored-name {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .sponsored-desc {
+            font-size: 13px;
+            color: var(--fb-text-secondary);
+        }
+
+        /* نظام عرض المقالات */
+        .content-tabs {
+            display: none;
+        }
+
+        /* نظام عرض المقالات مع الصور */
+        .spicetab-container {
+            background-color: var(--fb-card-bg);
+            border-radius: var(--fb-border-radius);
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: var(--fb-shadow);
+        }
+
+        .spicetab {
+            border-radius: var(--fb-border-radius);
+            overflow: hidden;
+            background-color: var(--fb-card-bg);
+            position: relative;
+        }
+
+        .tab-tabs {
+            width: 25%;
+            float: right;
+            background: rgba(0, 0, 0, 0.03);
+            min-height: 400px;
+        }
+
+        .tab-tabs ul {
+            list-style: none;
+        }
+
+        .tab-tabs li a {
+            display: block;
+            padding: 12px 16px;
+            color: var(--fb-text-primary);
+            text-decoration: none;
+            border-bottom: 1px solid var(--fb-divider);
+            transition: var(--fb-transition);
+            font-size: 15px;
+        }
+
+        .tab-tabs li a:hover, .tab-tabs li a.active-tab {
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--fb-blue);
+        }
+
+        .tab-content {
+            width: 75%;
+            float: left;
+            background-color: var(--fb-card-bg);
+            min-height: 400px;
+            padding: 16px;
+        }
+
+        .panel {
+            display: none;
+        }
+
+        .panel.active {
+            display: block;
+        }
+
+        .panel ol {
+            list-style: none;
+        }
+
+        /* أنماط جديدة لعرض المقالات مع الصور */
+        .post-item {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--fb-divider);
+            overflow: hidden;
+            transition: var(--fb-transition);
+        }
+
+        .post-item:hover {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        .post-thumbnail {
+            float: right;
+            margin-left: 16px;
+            margin-bottom: 8px;
+            width: 120px;
+            height: 80px;
+            border-radius: var(--fb-border-radius);
+            overflow: hidden;
+        }
+
+        .post-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .post-item:hover .post-thumbnail img {
+            transform: scale(1.05);
+        }
+
+        .post-title {
+            display: block;
+            font-weight: 600;
+            color: var(--fb-text-primary);
+            text-decoration: none;
+            margin-bottom: 4px;
+            transition: var(--fb-transition);
+            font-size: 16px;
+        }
+
+        .post-title:hover {
+            color: var(--fb-blue);
+        }
+
+        .post-meta {
+            font-size: 13px;
+            color: var(--fb-text-secondary);
+            display: flex;
+            gap: 16px;
+        }
+
+        .post-meta time {
+            display: inline-block;
+        }
+
+        .post-comments {
+            display: inline-block;
+        }
+
+        .post-summary {
+            font-size: 14px;
+            color: var(--fb-text-secondary);
+            margin-top: 8px;
+            clear: both;
+        }
+
+        /* نظام Sitemap مع الصور */
+        .sitemap-section {
+            background-color: var(--fb-card-bg);
+            border-radius: var(--fb-border-radius);
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: var(--fb-shadow);
+        }
+
+        .sitemap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 16px;
+        }
+
+        .sitemap-category h3 {
+            font-size: 17px;
+            margin-bottom: 16px;
+            color: var(--fb-text-primary);
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--fb-divider);
+        }
+
+        .sitemap-item {
+            border-radius: var(--fb-border-radius);
+            overflow: hidden;
+            transition: var(--fb-transition);
+            box-shadow: var(--fb-shadow);
+            background-color: var(--fb-card-bg);
+        }
+
+        .sitemap-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .sitemap-link {
+            display: block;
+            text-decoration: none;
+            color: var(--fb-text-primary);
+        }
+
+        .sitemap-thumbnail {
+            height: 120px;
+            overflow: hidden;
+        }
+
+        .sitemap-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .sitemap-item:hover .sitemap-thumbnail img {
+            transform: scale(1.1);
+        }
+
+        .sitemap-title {
+            display: block;
+            padding: 12px;
+            font-size: 14px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* الفوتر على شكل فيسبوك */
+        footer {
+            background-color: var(--fb-card-bg);
+            color: var(--fb-text-primary);
+            padding: 24px 0;
+            border-top: 1px solid var(--fb-divider);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+        }
+
+        .footer-column h3 {
+            font-size: 17px;
+            margin-bottom: 16px;
+            position: relative;
+            color: var(--fb-text-secondary);
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--fb-blue);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            color: var(--fb-text-secondary);
+            text-decoration: none;
+            transition: var(--fb-transition);
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: var(--fb-blue);
+            padding-right: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--fb-light);
+            color: var(--fb-text-primary);
+            transition: var(--fb-transition);
+            flex-shrink: 0;
+        }
+
+        .social-link:hover {
+            background-color: var(--fb-blue);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .newsletter-form {
+            margin-top: 16px;
+        }
+
+        .newsletter-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--fb-divider);
+            border-radius: var(--fb-border-radius);
+            margin-bottom: 8px;
+            font-family: inherit;
+            transition: var(--fb-transition);
+            background-color: var(--fb-light);
+            color: var(--fb-text-primary);
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--fb-blue);
+            box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.2);
+        }
+
+        .newsletter-button {
+            background-color: var(--fb-blue);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: var(--fb-border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--fb-transition);
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .newsletter-button:hover {
+            background-color: var(--fb-blue-dark);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 24px;
+            margin-top: 24px;
+            border-top: 1px solid var(--fb-divider);
+            color: var(--fb-text-secondary);
+            font-size: 13px;
+            color:red;
+            grid-column: 1 / -1;
+        }
+
+        /* زر العودة للأعلى */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--fb-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: var(--fb-shadow);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--fb-transition);
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--fb-blue-dark);
+            transform: translateY(-5px);
+        }
+
+        /* تأثيرات الحركة */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* التكيف مع الشاشات المختلفة */
+        @media (max-width: 1024px) {
+            main {
+                grid-template-columns: 240px 1fr;
+            }
+            
+            .right-sidebar {
+                display: none;
+            }
+            
+            .tab-tabs {
+                width: 30%;
+            }
+            
+            .tab-content {
+                width: 70%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --header-height: 56px;
+            }
+            
+            body {
+                padding-top: var(--header-height);
+            }
+            
+            .menu {
+                height: 48px;
+            }
+            
+            .left-sidebar, .right-sidebar {
+                height: calc(100vh - var(--header-height) - 48px - 40px);
+            }
+            
+            main {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            
+            .left-sidebar {
+                position: static;
+                height: auto;
+                order: 2;
+            }
+            
+            .spicetab {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .tab-tabs {
+                width: 100%;
+                float: none;
+                min-height: auto;
+                display: flex;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .tab-tabs ul {
+                display: flex;
+                flex-wrap: nowrap;
+            }
+            
+            .tab-tabs li {
+                flex: 1;
+                min-width: max-content;
+            }
+            
+            .tab-tabs li a {
+                border-bottom: none;
+                border-left: 1px solid var(--fb-divider);
+                text-align: center;
+                white-space: nowrap;
+            }
+            
+            .tab-content {
+                width: 100%;
+                float: none;
+            }
+            
+            .post-thumbnail {
+                width: 100px;
+                height: 70px;
+            }
+            
+            .sitemap-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            }
+            
+            .sitemap-thumbnail {
+                height: 100px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header-container {
+                padding: 0 12px;
+            }
+            
+            .logo {
+                font-size: 20px;
+            }
+            
+            .logo img {
+                height: 36px;
+                width: 36px;
+            }
+            
+            .search-container {
+                display: none;
+            }
+            
+            .menu-list {
+                gap: 4px;
+            }
+            
+            .menu-link {
+                padding: 0 12px;
+                font-size: 14px;
+            }
+            
+            .post-thumbnail {
+                width: 80px;
+                height: 60px;
+                margin-left: 8px;
+            }
+            
+            .sitemap-section {
+                padding: 12px;
+            }
+            
+            .sitemap-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+            
+            .sitemap-thumbnail {
+                height: 80px;
+            }
+            
+            .footer-container {
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 18px;
+            }
+            
+            .logo img {
+                height: 32px;
+                width: 32px;
+            }
+            
+            .post-item {
+                padding: 12px 0;
+            }
+            
+            .post-thumbnail {
+                width: 70px;
+                height: 50px;
+            }
+            
+            .post-meta {
+                flex-direction: column;
+                gap: 4px;
+            }
+            
+            .sitemap-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sitemap-item {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+            
+            .sitemap-thumbnail {
+                width: 80px;
+                height: 60px;
+                flex-shrink: 0;
+            }
+            
+            .sitemap-title {
+                text-align: right;
+                padding: 8px;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-column {
+                margin-bottom: 16px;
+            }
+            
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                bottom: 16px;
+                left: 16px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .menu-link {
+                padding: 0 8px;
+                font-size: 13px;
+            }
+            
+            .post-thumbnail {
+                width: 60px;
+                height: 45px;
+            }
+        }
+
+        /* تحسينات للوضع الأفقي على الأجهزة المحمولة */
+        @media screen and (max-height: 500px) and (orientation: landscape) {
+            :root {
+                --header-height: 48px;
+            }
+            
+            .menu {
+                height: 40px;
+            }
+            
+            .logo {
+                font-size: 16px;
+            }
+            
+            .logo img {
+                height: 28px;
+                width: 28px;
+            }
+            
+            .menu-link {
+                padding: 0 8px;
+                font-size: 12px;
+            }
+        }
+
+        /* تحسينات للوضع المظلم */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --fb-light: #18191a;
+                --fb-card-bg: #242526;
+                --fb-text-primary: #e4e6eb;
+                --fb-text-secondary: #b0b3b8;
+                --fb-divider: #3e4042;
+            }
+            
+            .search-input, .newsletter-input {
+                background-color: #3a3b3c;
+                color: var(--fb-text-primary);
+            }
+            
+            .search-input::placeholder {
+                color: var(--fb-text-secondary);
+            }
+            
+            .sidebar-menu a:hover, .post-action:hover, .sponsored-item:hover {
+                background-color: #3a3b3c;
+            }
+            
+            .tab-tabs {
+                background-color: #3a3b3c;
+            }
+            
+            .social-link {
+                background-color: #3a3b3c;
+            }
+            
+            .footer-links a {
+                color: var(--fb-text-secondary);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الهيدر -->
+    <header>
+        <div class="header-container">
+            <a href="/مدونة العرائش التقنية 1logo.png" class="logo">
+                <img src="/مدونة العرائش التقنية 1logo.png" alt="شعار مدونة العرائش التقنية" loading="lazy">
+                <span>العرائش التقنية</span>
+            </a>
+            
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="ابحث في المدونة..." aria-label="بحث في المدونة">
+                <button class="search-button" aria-label="بحث">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- القائمة -->
+    <nav class="menu" aria-label="القائمة الرئيسية">
+        <div class="menu-container">
+            <ul class="menu-list">
+                <li><a href="https://greatxenforo.blogspot.com/" class="menu-link active">الرئيسية</a></li>
+                <li><a href="https://greatxenforo.blogspot.com/search/label/%D8%AA%D8%AD%D8%B3%D9%8A%D9%86%20%D8%A7%D9%84%D8%B3%D9%8A%D9%88" class="menu-link">تحسين محركات البحث</a></li>
+                <li><a href="https://greatxenforo.blogspot.com/search/label/%D9%88%D9%88%D8%B1%D8%AF%20%D8%A8%D8%B1%D9%8A%D8%B3" class="menu-link">ووردبريس</a></li>
+                <li><a href="https://greatxenforo.blogspot.com/search/label/%D8%A8%D9%84%D9%88%D8%AC%D8%B1" class="menu-link">بلوجر</a></li>
+                <li><a href="https://greatxenforo.blogspot.com/search/label/%D8%B4%D8%B1%D9%88%D8%AD%D8%A7%D8%AA" class="menu-link">شروحات</a></li>
+                <li><a href="https://greatxenforo.blogspot.com/p/about-us.html" class="menu-link">من نحن</a></li>
+                <li><a href="https://greatxenforo.blogspot.com/p/contact-us.html" class="menu-link">اتصل بنا</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- المحتوى الرئيسي -->
+    <main>
+        <!-- العمود الأيسر -->
+        <aside class="left-sidebar">
+            <div class="sidebar-section">
+                <ul class="sidebar-menu">
+                    <li><a href="https://greatxenforo.blogspot.com/"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li><a href="https://greatxenforo.blogspot.com/p/about-us.html"><i class="fas fa-info-circle"></i> من نحن</a></li>
+                    <li><a href="https://greatxenforo.blogspot.com/p/contact-us.html"><i class="fas fa-envelope"></i> اتصل بنا</a></li>
+                    <li><a href="https://greatxenforo.blogspot.com/p/privacy-policy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">التصنيفات</h3>
+                <ul class="sidebar-menu">
+                    <li><a href="https://greatxenforo.blogspot.com/search/label/%D8%AA%D8%AD%D8%B3%D9%8A%D9%86%20%D8%A7%D9%84%D8%B3%D9%8A%D9%88"><i class="fas fa-search"></i> تحسين محركات البحث</a></li>
+                    <li><a href="https://greatxenforo.blogspot.com/search/label/%D9%88%D9%88%D8%B1%D8%AF%20%D8%A8%D8%B1%D9%8A%D8%B3"><i class="fab fa-wordpress"></i> ووردبريس</a></li>
+                    <li><a href="https://greatxenforo.blogspot.com/search/label/%D8%A8%D9%84%D9%88%D8%AC%D8%B1"><i class="fab fa-blogger"></i> بلوجر</a></li>
+                    <li><a href="https://greatxenforo.blogspot.com/search/label/%D8%B4%D8%B1%D9%88%D8%AD%D8%A7%D8%AA"><i class="fas fa-graduation-cap"></i> شروحات</a></li>
+                    <li><a href="https://greatxenforo.blogspot.com/search/label/%D8%A7%D8%AF%D8%B3%D9%86%D8%B3"><i class="fab fa-google"></i> أدسنس</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- العمود الأوسط - المقالات -->
+        <div class="content-column">
+            <!-- منشور ترحيبي -->
+            <article class="post-card">
+                <div class="post-header">
+                    <img src="/مدونة العرائش التقنية 1logo.png" alt="صورة المدونة" class="post-avatar">
+                    <div class="post-author">
+                        <div class="post-author-name">مدونة العرائش التقنية</div>
+                        <div class="post-time"><i class="far fa-clock"></i> الآن</div>
+                    </div>
+                    <div class="post-more">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <div class="post-text">
+                        <h1>مرحباً بكم في مدونة العرائش التقنية</h1>
+                        <p>نقدم لكم أحدث المقالات والشروحات في مجال تحسين محركات البحث (SEO)، إدارة مواقع ووردبريس وبلوجر، وأحدث التقنيات البرمجية</p>
+                    </div>
+                </div>
+                <div class="post-stats">
+                    <div class="post-likes">
+                        <i class="fas fa-thumbs-up"></i> 120
+                    </div>
+                    <div class="post-comments-count">45 تعليق</div>
+                </div>
+                <div class="post-actions">
+                    <div class="post-action">
+                        <i class="far fa-thumbs-up"></i> أعجبني
+                    </div>
+                    <div class="post-action">
+                        <i class="far fa-comment"></i> تعليق
+                    </div>
+                    <div class="post-action">
+                        <i class="fas fa-share"></i> مشاركة
+                    </div>
+                </div>
+            </article>
+
+            <!-- نظام عرض المقالات -->
+            <div class="content-tabs">
+                <h2>مواضيع مدونة العرائش التقنية</h2>       
+            </div>
+
+            <div class="spicetab-container">
+                <div class="spicetab" id="categories-tab">
+                    <div class="loading">جاري تحميل الأقسام...</div>
+                </div>
+            </div>
+
+            <!-- قسم خريطة الموقع -->
+            <section id="sitemap" class="content-section" aria-labelledby="sitemap-heading">
+                <div class="sitemap-section">
+                    <h2 id="sitemap-heading" class="visually-hidden">خريطة الموقع</h2>
+                    <div class="postBody">
+                        <div class="postSection sitemaps" id="sitemaps">
+                            <div class="loading">جاري تحميل خريطة الموقع...</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- العمود الأيمن -->
+        <aside class="right-sidebar">
+            <div class="sponsored-card">
+                <h3 class="sponsored-title">مقالات مميزة</h3>
+                <div class="sponsored-item">
+                    <img src="https://via.placeholder.com/100" alt="مقال مميز" class="sponsored-image">
+                    <div class="sponsored-info">
+                        <div class="sponsored-name">أفضل أدوات السيو</div>
+                        <div class="sponsored-desc">تعرف على أهم الأدوات المجانية</div>
+                    </div>
+                </div>
+                <div class="sponsored-item">
+                    <img src="https://via.placeholder.com/100" alt="مقال مميز" class="sponsored-image">
+                    <div class="sponsored-info">
+                        <div class="sponsored-name">تحسين سرعة المدونة</div>
+                        <div class="sponsored-desc">نصائح لتحسين أداء مدونتك</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sponsored-card">
+                <h3 class="sponsored-title">تابعنا</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link" aria-label="إنستغرام"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link" aria-label="يوتيوب"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>عن المدونة</h3>
+                <p>مدونة العرائش التقنية تقدم محتوى عربي مميز في مجال التقنية، تحسين محركات البحث، وبرمجة الويب.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link" aria-label="إنستغرام"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link" aria-label="يوتيوب"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>روابط سريعة</h3>
+                <ul class="footer-links">
+                    <li><a href="https://greatxenforo.blogspot.com">الرئيسية</a></li>
+                    <li><a href="https://greatxenforo.blogspot.com/p/about-us.html">من نحن</a></li>
+                    <li><a href="https://greatxenforo.blogspot.com/p/contact-us.html">اتصل بنا</a></li>
+                    <li><a href="https://greatxenforo.blogspot.com/p/privacy-policy.html">سياسة الخصوصية</a></li>
+                    <li><a href="https://greatxenforo.blogspot.com/sitemap.xml">خريطة الموقع</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>التصنيفات</h3>
+                <ul class="footer-links">
+                    <li><a href="https://greatxenforo.blogspot.com/search/label/%D8%AA%D8%AD%D8%B3%D9%8A%D9%86%20%D8%A7%D9%84%D8%B3%D9%8A%D9%88">تحسين محركات البحث</a></li>
+                    <li><a href="https://greatxenforo.blogspot.com/search/label/%D9%88%D9%88%D8%B1%D8%AF%20%D8%A8%D8%B1%D9%8A%D8%B3">ووردبريس</a></li>
+                    <li><a href="https://greatxenforo.blogspot.com/search/label/%D8%A8%D9%84%D9%88%D8%AC%D8%B1">بلوجر</a></li>
+                    <li><a href="https://greatxenforo.blogspot.com/search/label/%D8%B4%D8%B1%D9%88%D8%AD%D8%A7%D8%AA">شروحات</a></li>
+                    <li><a href="https://greatxenforo.blogspot.com/search/label/%D8%A7%D8%AF%D8%B3%D9%86%D8%B3"> أدسنس</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>النشرة البريدية</h3>
+                <p>اشترك ليصلك كل جديد من مقالات وشروحات</p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="بريدك الإلكتروني" required aria-label="البريد الإلكتروني للنشرة البريدية">
+                    <button type="submit" class="newsletter-button">اشتراك</button>
+                </form>
+            </div>
+
+            <div class="copyright">
+                &copy; <span id="current-year"></span> جميع الحقوق محفوظة لمدونة العرائش التقنية
+            </div>
+        </div>
+    </footer>
+
+    <!-- زر العودة للأعلى -->
+    <a href="#" class="back-to-top" id="back-to-top" aria-label="العودة إلى الأعلى">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- الجافاسكريبت -->
+    <script>
+        // تحديث سنة حقوق النشر
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // زر العودة للأعلى
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        // تحسينات للوصول
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                document.documentElement.classList.add('keyboard-nav');
+            }
+        });
+
+        document.addEventListener('mousedown', function() {
+            document.documentElement.classList.remove('keyboard-nav');
+        });
+
+        // تحسين أداء التحميل
+        document.addEventListener('DOMContentLoaded', function() {
+            // تحميل الأنظمة بعد تحميل الصفحة
+            setTimeout(function() {
+                loadTabSystem(recentTabConfig);
+                loadTabSystem(categoriesTabConfig);
+                loadSitemap();
+            }, 300);
+            
+            // تحسين تجربة اللمس
+            document.querySelectorAll('a, button').forEach(element => {
+                element.style.touchAction = 'manipulation';
+            });
+            
+            // تأثيرات التمرير
+            initScrollEffects();
+        });
+
+        // تأثيرات التمرير
+        function initScrollEffects() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {threshold: 0.1});
+
+            document.querySelectorAll('.panel li, .sitemap-item').forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(item);
+            });
+        }
+
+        // نظام التبويبات
+        const tabs = document.querySelectorAll('.content-tab');
+        const sections = document.querySelectorAll('.content-section');
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                sections.forEach(s => s.classList.remove('active-section'));
+                
+                tab.classList.add('active');
+                document.getElementById(`${tab.dataset.tab}-posts`).classList.add('active-section');
+            });
+        });
+
+        // نظام Spicetab للمقالات الحديثة
+        var recentTabConfig = {
+            blogUrl: "https://greatxenforo.blogspot.com/",
+            containerId: "recent-tab",
+            activeTab: 1,
+            showDates: true,
+            showSummaries: true,
+            numChars: 120,
+            showThumbnails: true,
+            thumbSize: 80,
+            noThumb: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAA3NCSVQICAjb4U/gAAAADElEQVQImWOor68HAAL+AX7vOF2TAAAAAElFTkSuQmCC",
+            monthNames: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"],
+            newTabLink: false,
+            maxResults: 12,
+            preload: 0,
+            sortAlphabetically: false,
+            showNew: 7,
+            newText: ' – <em style="color:#ff0000;">جديد</em>'
+        };
+
+        // نظام Spicetab للأقسام
+        var categoriesTabConfig = {
+            blogUrl: "https://greatxenforo.blogspot.com/",
+            containerId: "categories-tab",
+            activeTab: 1,
+            showDates: true,
+            showSummaries: true,
+            numChars: 200,
+            showThumbnails: true,
+            thumbSize: 60,
+            noThumb: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAA3NCSVQICAjb4U/gAAAADElEQVQImWOor68HAAL+AX7vOF2TAAAAAElFTkSuQmCC",
+            monthNames: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"],
+            newTabLink: false,
+            maxResults: 99999,
+            preload: 0,
+            sortAlphabetically: true,
+            showNew: false
+        };
+
+        // نظام Sitemap
+        var sitemapConfig = {
+            containerId: 'sitemaps', 
+            showNew: 0, 
+            sortAlphabetically: {thePanel: true, theList: true}, 
+            activePanel: 1, 
+            slideSpeed: {down: 400, up: 400}, 
+            slideEasing: {down: null, up: null}, 
+            slideCallback: {down: function(){}, up: function(){}}, 
+            clickCallback: function(){}, 
+            jsonCallback: 'sitemaps',
+            delayLoading: 0
+        };
+
+        // تحميل الأنظمة
+        function loadTabSystem(config) {
+            var container = document.getElementById(config.containerId);
+            var head = document.getElementsByTagName("head")[0];
+            var labels = [];
+            
+            window[config.jsonCallback] = function(data) {
+                var entries = data.feed.entry || [];
+                var categories = data.feed.category || [];
+                var html = '';
+                
+                // إضافة علامة "جديد" للمقالات الحديثة
+                if (config.showNew && config.showNew > 0) {
+                    for (var i = 0; i < Math.min(config.showNew, entries.length); i++) {
+                        entries[i].title.$t += config.newText;
+                    }
+                }
+                
+                // ترتيب المقالات
+                if (config.sortAlphabetically) {
+                    entries = entries.sort(function(a, b) {
+                        return a.title.$t.localeCompare(b.title.$t);
+                    });
+                    categories = categories.sort(function(a, b) {
+                        return a.term.localeCompare(b.term);
+                    });
+                }
+                
+                // بناء واجهة التبويبات
+                if (config.showSummaries) {
+                    html += '<div class="tab-tabs"><ul>';
+                    
+                    categories.forEach(function(cat, index) {
+                        labels.push(cat.term);
+                        html += `<li><a onclick="switchTab('${config.containerId}', ${index})" class="${index === config.activeTab - 1 ? 'active-tab' : ''}">${cat.term}</a></li>`;
+                    });
+                    
+                    html += '</ul></div><div class="tab-content">';
+                    
+                    categories.forEach(function(cat, catIndex) {
+                        html += `<ol class="panel" data-category="${cat.term}" ${catIndex !== config.activeTab - 1 ? 'style="display:none;"' : ''}>`;
+                        
+                        entries.forEach(function(entry) {
+                            var entryLink = '';
+                            var entryDate = '';
+                            var commentsCount = '0 تعليق';
+                            
+                            // البحث عن رابط المقال
+                            for (var i = 0; i < entry.link.length; i++) {
+                                if (entry.link[i].rel === "alternate") {
+                                    entryLink = entry.link[i].href;
+                                    break;
+                                }
+                            }
+                            
+                            // عدد التعليقات
+                            if (entry.thr$total && entry.thr$total.$t) {
+                                commentsCount = entry.thr$total.$t + ' تعليق';
+                            }
+                            
+                            // تنسيق التاريخ
+                            if (config.showDates) {
+                                var pubDate = new Date(entry.published.$t);
+                                var day = pubDate.getDate();
+                                var month = config.monthNames[pubDate.getMonth()];
+                                var year = pubDate.getFullYear();
+                                entryDate = `<time datetime="${entry.published.$t}">${day} ${month} ${year}</time>`;
+                            }
+                            
+                            // عرض الصورة المصغرة
+                            var thumbnail = getPostThumbnail(entry, config.thumbSize);
+                            
+                            // عرض الملخص
+                            var summary = '';
+                            if (config.showSummaries && entry.summary) {
+                                summary = entry.summary.$t.replace(/<[^>]*>/g, '').substring(0, config.numChars) + '...';
+                            }
+                            
+                            // التحقق من تصنيف المقال
+                            if (entry.category) {
+                                entry.category.forEach(function(entryCat) {
+                                    if (entryCat.term === cat.term) {
+                                        html += `
+                                            <li class="post-item">
+                                                ${thumbnail ? `
+                                                <div class="post-thumbnail">
+                                                    <img src="${thumbnail}" alt="${entry.title.$t}" loading="lazy">
+                                                </div>
+                                                ` : ''}
+                                                <a href="${entryLink}" class="post-title">${entry.title.$t}</a>
+                                                <div class="post-meta">
+                                                    ${entryDate ? entryDate : ''}
+                                                    <span class="post-comments">${commentsCount}</span>
+                                                </div>
+                                                ${summary ? `<div class="post-summary">${summary}</div>` : ''}
+                                            </li>
+                                        `;
+                                    }
+                                });
+                            }
+                        });
+                        
+                        html += '</ol>';
+                    });
+                    
+                    html += '</div>';
+                } else {
+                    // واجهة أبسط للأقسام
+                    html += '<div class="sitemapBox"><h4 class="sitemapTitle">الأقسام</h4><div class="sitemapContent"><ol>';
+                    
+                    categories.forEach(function(cat) {
+                        html += `<li><a href="/search/label/${encodeURIComponent(cat.term)}">${cat.term}</a></li>`;
+                    });
+                    
+                    html += '</ol></div></div>';
+                }
+                
+                container.innerHTML = html;
+                initScrollEffects();
+            };
+            
+            var script = document.createElement("script");
+            script.src = `${config.blogUrl}/feeds/posts/summary?alt=json-in-script&max-results=${config.maxResults}&orderby=${config.sortAlphabetically ? 'updated' : 'published'}&callback=${config.jsonCallback}`;
+            
+            if (config.delayLoading === "onload") {
+                window.onload = function() {
+                    head.appendChild(script);
+                };
+            } else {
+                setTimeout(function() {
+                    head.appendChild(script);
+                }, config.delayLoading);
+            }
+        }
+
+        // دالة للحصول على صورة المقال
+        function getPostThumbnail(entry, size = 400) {
+            if (entry.media$thumbnail) {
+                return entry.media$thumbnail.url.replace(/\/s\d+-c\//, `/s${size}-c/`);
+            }
+            
+            // البحث عن صورة في محتوى المقال إذا لم يكن هناك صورة مصغرة
+            const content = entry.content ? entry.content.$t : '';
+            if (content) {
+                const imgMatch = content.match(/<img[^>]+src="([^">]+)"/);
+                if (imgMatch && imgMatch[1]) {
+                    return imgMatch[1];
+                }
+            }
+            
+            // صورة افتراضية إذا لم توجد صورة
+            return 'https://via.placeholder.com/' + size + 'x' + Math.round(size*0.75) + '?text=لا+توجد+صورة';
+        }
+
+        // تحميل خريطة الموقع
+        function loadSitemap() {
+            var container = document.getElementById(sitemapConfig.containerId);
+            var head = document.getElementsByTagName("head")[0];
+            
+            window[sitemapConfig.jsonCallback] = function(data) {
+                var entries = data.feed.entry || [];
+                var categories = data.feed.category || [];
+                var html = '';
+                
+                // إضافة علامة "جديد" إذا تم التفعيل
+                if (sitemapConfig.showNew && sitemapConfig.showNew > 0) {
+                    for (var i = 0; i < Math.min(sitemapConfig.showNew, entries.length); i++) {
+                        entries[i].title.$t += ' %new%';
+                    }
+                }
+                
+                // ترتيب المحتوى
+                if (sitemapConfig.sortAlphabetically.theList) {
+                    entries = entries.sort(function(a, b) {
+                        return a.title.$t.localeCompare(b.title.$t);
+                    });
+                }
+                
+                if (sitemapConfig.sortAlphabetically.thePanel) {
+                    categories = categories.sort(function(a, b) {
+                        return a.term.localeCompare(b.term);
+                    });
+                }
+                
+                // بناء خريطة الموقع
+                categories.forEach(function(cat) {
+                    html += `<div class="sitemapBox">
+                        <h4 class="sitemapTitle">${cat.term}</h4>
+                        <div class="sitemapContent">
+                            <div class="sitemap-grid">`;
+                    
+                    entries.forEach(function(entry) {
+                        var entryLink = '';
+                        
+                        // البحث عن رابط المقال
+                        for (var i = 0; i < entry.link.length; i++) {
+                            if (entry.link[i].rel === "alternate") {
+                                entryLink = entry.link[i].href;
+                                break;
+                            }
+                        }
+                        
+                        // التحقق من تصنيف المقال
+                        if (entry.category) {
+                            entry.category.forEach(function(entryCat) {
+                                if (entryCat.term === cat.term) {
+                                    const thumbnail = getPostThumbnail(entry, 400);
+                                    html += `
+                                        <div class="sitemap-item">
+                                            <a href="${entryLink}" class="sitemap-link">
+                                                <div class="sitemap-thumbnail">
+                                                    <img src="${thumbnail}" alt="${entry.title.$t}" loading="lazy">
+                                                </div>
+                                                <span class="sitemap-title">${entry.title.$t.replace(/ %new%$/, '')}</span>
+                                            </a>
+                                        </div>
+                                    `;
+                                }
+                            });
+                        }
+                    });
+                    
+                    html += `</div>
+                        </div>
+                    </div>`;
+                });
+                
+                container.innerHTML = html;
+                initScrollEffects();
+            };
+            
+            var script = document.createElement("script");
+            script.src = `https://greatxenforo.blogspot.com/feeds/posts/summary?alt=json-in-script&max-results=9999&callback=${sitemapConfig.jsonCallback}`;
+            
+            if (sitemapConfig.delayLoading === "onload") {
+                window.onload = function() {
+                    head.appendChild(script);
+                };
+            } else {
+                setTimeout(function() {
+                    head.appendChild(script);
+                }, sitemapConfig.delayLoading);
+            }
+        }
+
+        // تبديل التبويبات
+        window.switchTab = function(containerId, tabIndex) {
+            var container = document.getElementById(containerId);
+            var tabs = container.querySelectorAll('.tab-tabs li a');
+            var panels = container.querySelectorAll('.panel');
+            
+            tabs.forEach(tab => tab.classList.remove('active-tab'));
+            panels.forEach(panel => panel.style.display = 'none');
+            
+            tabs[tabIndex].classList.add('active-tab');
+            panels[tabIndex].style.display = 'block';
+        };
+
+        // البحث (وظيفة تجريبية)
+        const searchInput = document.querySelector('.search-input');
+        const searchButton = document.querySelector('.search-button');
+        
+        searchButton.addEventListener('click', () => {
+            if (searchInput.value.trim()) {
+                window.location.href = `/search?q=${encodeURIComponent(searchInput.value)}`;
+            }
+        });
+        
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && searchInput.value.trim()) {
+                window.location.href = `/search?q=${encodeURIComponent(searchInput.value)}`;
+            }
+        });
+    </script>
+    <style>
+        /* تحسينات للوصول */
+        .keyboard-nav a:focus,
+        .keyboard-nav button:focus,
+        .keyboard-nav input:focus,
+        .keyboard-nav select:focus,
+        .keyboard-nav textarea:focus {
+            outline: 2px solid var(--fb-blue);
+            outline-offset: 2px;
+        }
+        
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* تأثيرات الظهور */
+        .panel li.visible,
+        .sitemap-item.visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    </style>
+    <script>
+        // نظام Spicetab للأقسام
+        var categoriesTabConfig = {
+            blogUrl: "https://greatxenforo.blogspot.com/",
+            containerId: "categories-tab",
+            activeTab: 1,
+            showDates: true,
+            showSummaries: true,
+            numChars: 200,
+            showThumbnails: true,
+            thumbSize: 400, // حجم أكبر للصور
+            noThumb: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAA3NCSVQICAjb4U/gAAAADElEQVQImWOor68HAAL+AX7vOF2TAAAAAElFTkSuQmCC",
+            monthNames: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"],
+            newTabLink: false,
+            maxResults: 99999,
+            preload: 0,
+            sortAlphabetically: true,
+            showNew: false
+        };
+
+        // تحميل الأنظمة
+        function loadTabSystem(config) {
+            var container = document.getElementById(config.containerId);
+            var head = document.getElementsByTagName("head")[0];
+            var labels = [];
+            
+            window[config.jsonCallback] = function(data) {
+                var entries = data.feed.entry || [];
+                var categories = data.feed.category || [];
+                var html = '';
+                
+                // إضافة علامة "جديد" للمقالات الحديثة
+                if (config.showNew && config.showNew > 0) {
+                    for (var i = 0; i < Math.min(config.showNew, entries.length); i++) {
+                        entries[i].title.$t += config.newText;
+                    }
+                }
+                
+                // ترتيب المقالات
+                if (config.sortAlphabetically) {
+                    entries = entries.sort(function(a, b) {
+                        return a.title.$t.localeCompare(b.title.$t);
+                    });
+                    categories = categories.sort(function(a, b) {
+                        return a.term.localeCompare(b.term);
+                    });
+                }
+                
+                // بناء واجهة التبويبات
+                if (config.showSummaries) {
+                    html += '<div class="tab-tabs"><ul>';
+                    
+                    categories.forEach(function(cat, index) {
+                        labels.push(cat.term);
+                        html += `<li><a onclick="switchTab('${config.containerId}', ${index})" class="${index === config.activeTab - 1 ? 'active-tab' : ''}">${cat.term}</a></li>`;
+                    });
+                    
+                    html += '</ul></div><div class="tab-content">';
+                    
+                    categories.forEach(function(cat, catIndex) {
+                        html += `<ol class="panel" data-category="${cat.term}" ${catIndex !== config.activeTab - 1 ? 'style="display:none;"' : ''}>`;
+                        
+                        entries.forEach(function(entry) {
+                            var entryLink = '';
+                            var entryDate = '';
+                            var commentsCount = '0 تعليق';
+                            
+                            // البحث عن رابط المقال
+                            for (var i = 0; i < entry.link.length; i++) {
+                                if (entry.link[i].rel === "alternate") {
+                                    entryLink = entry.link[i].href;
+                                    break;
+                                }
+                            }
+                            
+                            // عدد التعليقات
+                            if (entry.thr$total && entry.thr$total.$t) {
+                                commentsCount = entry.thr$total.$t + ' تعليق';
+                            }
+                            
+                            // تنسيق التاريخ
+                            if (config.showDates) {
+                                var pubDate = new Date(entry.published.$t);
+                                var day = pubDate.getDate();
+                                var month = config.monthNames[pubDate.getMonth()];
+                                var year = pubDate.getFullYear();
+                                entryDate = `<time datetime="${entry.published.$t}">${day} ${month} ${year}</time>`;
+                            }
+                            
+                            // عرض الصورة المصغرة
+                            var thumbnail = getPostThumbnail(entry, config.thumbSize);
+                            
+                            // عرض الملخص
+                            var summary = '';
+                            if (config.showSummaries && entry.summary) {
+                                summary = entry.summary.$t.replace(/<[^>]*>/g, '').substring(0, config.numChars) + '...';
+                            }
+                            
+                            // التحقق من تصنيف المقال
+                            if (entry.category) {
+                                entry.category.forEach(function(entryCat) {
+                                    if (entryCat.term === cat.term) {
+                                        // استخدام تصميم منشور فيسبوك بدلاً من التصميم القديم
+                                        html += `
+                                            <li class="post-card" style="margin-bottom: 16px;">
+                                                <div class="post-header">
+                                                    <img src="/مدونة العرائش التقنية 1logo.png" alt="صورة المدونة" class="post-avatar">
+                                                    <div class="post-author">
+                                                        <div class="post-author-name">مدونة العرائش التقنية</div>
+                                                        <div class="post-time"><i class="far fa-clock"></i> ${entryDate}</div>
+                                                    </div>
+                                                    <div class="post-more">
+                                                        <i class="fas fa-ellipsis-h"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="post-content">
+                                                    ${thumbnail ? `
+                                                    <img src="${thumbnail}" alt="${entry.title.$t}" class="post-image" loading="lazy">
+                                                    ` : ''}
+                                                    <div class="post-text">
+                                                        <a href="${entryLink}" class="post-title" style="font-size: 18px; margin-bottom: 8px; display: block;">${entry.title.$t}</a>
+                                                        ${summary ? `<p class="post-summary">${summary}</p>` : ''}
+                                                    </div>
+                                                </div>
+                                                <div class="post-stats">
+                                                    <div class="post-likes">
+                                                        <i class="fas fa-thumbs-up"></i> 0
+                                                    </div>
+                                                    <div class="post-comments-count">${commentsCount}</div>
+                                                </div>
+                                                <div class="post-actions">
+                                                    <div class="post-action">
+                                                        <i class="far fa-thumbs-up"></i> أعجبني
+                                                    </div>
+                                                    <div class="post-action">
+                                                        <i class="far fa-comment"></i> تعليق
+                                                    </div>
+                                                    <div class="post-action">
+                                                        <i class="fas fa-share"></i> مشاركة
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        `;
+                                    }
+                                });
+                            }
+                        });
+                        
+                        html += '</ol>';
+                    });
+                    
+                    html += '</div>';
+                } else {
+                    // واجهة أبسط للأقسام
+                    html += '<div class="sitemapBox"><h4 class="sitemapTitle">الأقسام</h4><div class="sitemapContent"><ol>';
+                    
+                    categories.forEach(function(cat) {
+                        html += `<li><a href="/search/label/${encodeURIComponent(cat.term)}">${cat.term}</a></li>`;
+                    });
+                    
+                    html += '</ol></div></div>';
+                }
+                
+                container.innerHTML = html;
+                initScrollEffects();
+            };
+            
+            var script = document.createElement("script");
+            script.src = `${config.blogUrl}/feeds/posts/summary?alt=json-in-script&max-results=${config.maxResults}&orderby=${config.sortAlphabetically ? 'updated' : 'published'}&callback=${config.jsonCallback}`;
+            
+            if (config.delayLoading === "onload") {
+                window.onload = function() {
+                    head.appendChild(script);
+                };
+            } else {
+                setTimeout(function() {
+                    head.appendChild(script);
+                }, config.delayLoading);
+            }
+        }
+
+        // نظام Sitemap
+        var sitemapConfig = {
+            containerId: 'sitemaps', 
+            showNew: 0, 
+            sortAlphabetically: {thePanel: true, theList: true}, 
+            activePanel: 1, 
+            slideSpeed: {down: 400, up: 400}, 
+            slideEasing: {down: null, up: null}, 
+            slideCallback: {down: function(){}, up: function(){}}, 
+            clickCallback: function(){}, 
+            jsonCallback: 'sitemaps',
+            delayLoading: 0
+        };
+
+        // تحميل خريطة الموقع
+        function loadSitemap() {
+            var container = document.getElementById(sitemapConfig.containerId);
+            var head = document.getElementsByTagName("head")[0];
+            
+            window[sitemapConfig.jsonCallback] = function(data) {
+                var entries = data.feed.entry || [];
+                var categories = data.feed.category || [];
+                var html = '';
+                
+                // إضافة علامة "جديد" إذا تم التفعيل
+                if (sitemapConfig.showNew && sitemapConfig.showNew > 0) {
+                    for (var i = 0; i < Math.min(sitemapConfig.showNew, entries.length); i++) {
+                        entries[i].title.$t += ' %new%';
+                    }
+                }
+                
+                // ترتيب المحتوى
+                if (sitemapConfig.sortAlphabetically.theList) {
+                    entries = entries.sort(function(a, b) {
+                        return a.title.$t.localeCompare(b.title.$t);
+                    });
+                }
+                
+                if (sitemapConfig.sortAlphabetically.thePanel) {
+                    categories = categories.sort(function(a, b) {
+                        return a.term.localeCompare(b.term);
+                    });
+                }
+                
+                // بناء خريطة الموقع
+                html += '<div class="sitemap-grid">';
+                
+                entries.forEach(function(entry) {
+                    var entryLink = '';
+                    
+                    // البحث عن رابط المقال
+                    for (var i = 0; i < entry.link.length; i++) {
+                        if (entry.link[i].rel === "alternate") {
+                            entryLink = entry.link[i].href;
+                            break;
+                        }
+                    }
+                    
+                    // تنسيق التاريخ
+                    var pubDate = new Date(entry.published.$t);
+                    var day = pubDate.getDate();
+                    var month = ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"][pubDate.getMonth()];
+                    var year = pubDate.getFullYear();
+                    var entryDate = `${day} ${month} ${year}`;
+                    
+                    // عدد التعليقات
+                    var commentsCount = '0 تعليق';
+                    if (entry.thr$total && entry.thr$total.$t) {
+                        commentsCount = entry.thr$total.$t + ' تعليق';
+                    }
+                    
+                    const thumbnail = getPostThumbnail(entry, 400);
+                    
+                    // استخدام تصميم بطاقة فيسبوك بدلاً من التصميم القديم
+                    html += `
+                        <div class="post-card">
+                            <div class="post-header">
+                                <img src="/مدونة العرائش التقنية 1logo.png" alt="صورة المدونة" class="post-avatar">
+                                <div class="post-author">
+                                    <div class="post-author-name">مدونة العرائش التقنية</div>
+                                    <div class="post-time"><i class="far fa-clock"></i> ${entryDate}</div>
+                                </div>
+                                <div class="post-more">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </div>
+                            </div>
+                            <div class="post-content">
+                                ${thumbnail ? `
+                                <img src="${thumbnail}" alt="${entry.title.$t}" class="post-image" loading="lazy">
+                                ` : ''}
+                                <div class="post-text">
+                                    <a href="${entryLink}" class="post-title" style="font-size: 18px; margin-bottom: 8px; display: block;">${entry.title.$t.replace(/ %new%$/, '')}</a>
+                                </div>
+                            </div>
+                            <div class="post-stats">
+                                <div class="post-likes">
+                                    <i class="fas fa-thumbs-up"></i> 0
+                                </div>
+                                <div class="post-comments-count">${commentsCount}</div>
+                            </div>
+                            <div class="post-actions">
+                                <div class="post-action">
+                                    <i class="far fa-thumbs-up"></i> أعجبني
+                                </div>
+                                <div class="post-action">
+                                    <i class="far fa-comment"></i> تعليق
+                                </div>
+                                <div class="post-action">
+                                    <i class="fas fa-share"></i> مشاركة
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                html += '</div>';
+                
+                container.innerHTML = html;
+                initScrollEffects();
+            };
+            
+            var script = document.createElement("script");
+            script.src = `https://greatxenforo.blogspot.com/feeds/posts/summary?alt=json-in-script&max-results=9999&callback=${sitemapConfig.jsonCallback}`;
+            
+            if (sitemapConfig.delayLoading === "onload") {
+                window.onload = function() {
+                    head.appendChild(script);
+                };
+            } else {
+                setTimeout(function() {
+                    head.appendChild(script);
+                }, sitemapConfig.delayLoading);
+            }
+        }
+</script>
+<style>
+  /* أنماط زر شاهد المزيد */
+.load-more-container {
+    text-align: center;
+    margin: 30px 0;
+    padding: 20px 0;
+}
+
+.load-more-btn {
+    background-color: var(--fb-blue);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: var(--fb-border-radius);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--fb-transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.load-more-btn:hover {
+    background-color: var(--fb-blue-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.load-more-btn:disabled {
+    background-color: var(--fb-light);
+    color: var(--fb-text-secondary);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.loading-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    display: none;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}  
+    
+</style>
+<script>
+    
+ // إعدادات التحميل التلقائي
+var loadMoreConfig = {
+    itemsPerLoad: 5, // عدد العناصر في كل تحميل
+    loadingText: "جاري التحميل...",
+    loadMoreText: "شاهد المزيد",
+    autoLoad: true // التحميل التلقائي عند الوصول لأسفل الصفحة
+};
+
+// تعديل دالة loadTabSystem
+function loadTabSystem(config) {
+    var container = document.getElementById(config.containerId);
+    var head = document.getElementsByTagName("head")[0];
+    var labels = [];
+    
+    window[config.jsonCallback] = function(data) {
+        var allEntries = data.feed.entry || [];
+        var categories = data.feed.category || [];
+        var html = '';
+        
+        // ترتيب المقالات
+        if (config.sortAlphabetically) {
+            allEntries = allEntries.sort(function(a, b) {
+                return a.title.$t.localeCompare(b.title.$t);
+            });
+            categories = categories.sort(function(a, b) {
+                return a.term.localeCompare(b.term);
+            });
+        }
+        
+        // بناء واجهة التبويبات
+        if (config.showSummaries) {
+            html += '<div class="tab-tabs"><ul>';
+            
+            categories.forEach(function(cat, index) {
+                labels.push(cat.term);
+                html += `<li><a onclick="switchTab('${config.containerId}', ${index})" class="${index === config.activeTab - 1 ? 'active-tab' : ''}">${cat.term}</a></li>`;
+            });
+            
+            html += '</ul><div class="tab-content">';
+            
+            categories.forEach(function(cat, catIndex) {
+                var categoryEntries = allEntries.filter(function(entry) {
+                    return entry.category && entry.category.some(function(entryCat) {
+                        return entryCat.term === cat.term;
+                    });
+                });
+                
+                html += `<div class="panel" data-category="${cat.term}" ${catIndex !== config.activeTab - 1 ? 'style="display:none;"' : ''}
+                          data-entries='${JSON.stringify(categoryEntries)}' data-loaded="0">
+                            <div class="posts-container"></div>
+                            <div class="load-more-container">
+                                <button class="load-more-btn" onclick="loadMorePosts('${config.containerId}', '${cat.term}')">
+                                    ${loadMoreConfig.loadMoreText}
+                                    <div class="loading-spinner"></div>
+                                </button>
+                            </div>
+                        </div>`;
+            });
+            
+            html += '</div></div>';
+            container.innerHTML = html;
+            
+            // تحميل الدفعة الأولى لكل قسم
+            categories.forEach(function(cat) {
+                loadMorePosts(config.containerId, cat.term, true);
+            });
+            
+            // إضافة التحميل التلقائي عند التمرير
+            if (loadMoreConfig.autoLoad) {
+                setupInfiniteScroll();
+            }
+        }
+        
+        initScrollEffects();
+    };
+    
+    var script = document.createElement("script");
+    script.src = `${config.blogUrl}/feeds/posts/summary?alt=json-in-script&max-results=${config.maxResults}&orderby=${config.sortAlphabetically ? 'updated' : 'published'}&callback=${config.jsonCallback}`;
+    head.appendChild(script);
+}
+
+// دالة تحميل المزيد من المقالات
+function loadMorePosts(containerId, category, isInitialLoad = false) {
+    var panel = document.querySelector(`#${containerId} .panel[data-category="${category}"]`);
+    var btn = panel.querySelector('.load-more-btn');
+    var spinner = panel.querySelector('.loading-spinner');
+    var postsContainer = panel.querySelector('.posts-container');
+    
+    var entries = JSON.parse(panel.dataset.entries);
+    var loadedCount = parseInt(panel.dataset.loaded);
+    var totalCount = entries.length;
+    
+    // إذا كانت كل المقالات معروضة بالفعل
+    if (loadedCount >= totalCount) {
+        panel.querySelector('.load-more-container').style.display = 'none';
+        return;
+    }
+    
+    // عرض حالة التحميل
+    btn.disabled = true;
+    btn.innerHTML = `${loadMoreConfig.loadingText} <div class="loading-spinner" style="display:inline-block;"></div>`;
+    
+    // محاكاة التأخير (يمكن إزالته في الإنتاج)
+    setTimeout(function() {
+        // حساب المقالات الجديدة لتحميلها
+        var nextCount = loadedCount + loadMoreConfig.itemsPerLoad;
+        var postsToShow = entries.slice(loadedCount, nextCount);
+        
+        // عرض المقالات الجديدة
+        var html = '';
+        postsToShow.forEach(function(entry) {
+            html += generatePostHtml(entry);
+        });
+        
+        if (isInitialLoad) {
+            postsContainer.innerHTML = html;
+        } else {
+            postsContainer.insertAdjacentHTML('beforeend', html);
+        }
+        
+        // تحديث العداد
+        panel.dataset.loaded = nextCount;
+        
+        // إخفاء الزر إذا تم عرض كل المقالات
+        if (nextCount >= totalCount) {
+            panel.querySelector('.load-more-container').style.display = 'none';
+        }
+        
+        // إعادة تعيين الزر
+        btn.disabled = false;
+        btn.innerHTML = `${loadMoreConfig.loadMoreText} <div class="loading-spinner"></div>`;
+        
+        // تطبيق تأثيرات الظهور على العناصر الجديدة
+        initScrollEffects();
+    }, 600);
+}
+
+// دالة إنشاء HTML للمقالة
+function generatePostHtml(entry) {
+    var entryLink = '';
+    var entryDate = '';
+    var commentsCount = '0 تعليق';
+    
+    // البحث عن رابط المقال
+    for (var i = 0; i < entry.link.length; i++) {
+        if (entry.link[i].rel === "alternate") {
+            entryLink = entry.link[i].href;
+            break;
+        }
+    }
+    
+    // عدد التعليقات
+    if (entry.thr$total && entry.thr$total.$t) {
+        commentsCount = entry.thr$total.$t + ' تعليق';
+    }
+    
+    // تنسيق التاريخ
+    var pubDate = new Date(entry.published.$t);
+    var day = pubDate.getDate();
+    var month = ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"][pubDate.getMonth()];
+    var year = pubDate.getFullYear();
+    entryDate = `${day} ${month} ${year}`;
+    
+    // عرض الصورة المصغرة
+    var thumbnail = getPostThumbnail(entry, 400);
+    
+    // عرض الملخص
+    var summary = '';
+    if (entry.summary) {
+        summary = entry.summary.$t.replace(/<[^>]*>/g, '').substring(0, 200) + '...';
+    }
+    
+    return `
+        <div class="post-card" style="margin-bottom: 16px;">
+            <div class="post-header">
+                <img src="/مدونة العرائش التقنية 1logo.png" alt="صورة المدونة" class="post-avatar">
+                <div class="post-author">
+                    <div class="post-author-name">مدونة العرائش التقنية</div>
+                    <div class="post-time"><i class="far fa-clock"></i> ${entryDate}</div>
+                </div>
+            </div>
+            <div class="post-content">
+                ${thumbnail ? `
+                <img src="${thumbnail}" alt="${entry.title.$t}" class="post-image" loading="lazy">
+                ` : ''}
+                <div class="post-text">
+                    <a href="${entryLink}" class="post-title" style="font-size: 18px; margin-bottom: 8px; display: block;">${entry.title.$t}</a>
+                    ${summary ? `<p class="post-summary">${summary}</p>` : ''}
+                </div>
+            </div>
+            <div class="post-stats">
+                <div class="post-likes">
+                    <i class="fas fa-thumbs-up"></i> 0
+                </div>
+                <div class="post-comments-count">${commentsCount}</div>
+            </div>
+            <div class="post-actions">
+                <div class="post-action">
+                    <i class="far fa-thumbs-up"></i> أعجبني
+                </div>
+                <div class="post-action">
+                    <i class="far fa-comment"></i> تعليق
+                </div>
+                <div class="post-action">
+                    <i class="fas fa-share"></i> مشاركة
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+// إعداد التحميل التلقائي عند التمرير
+function setupInfiniteScroll() {
+    var loading = false;
+    
+    window.addEventListener('scroll', function() {
+        if (loading) return;
+        
+        var loadMoreContainers = document.querySelectorAll('.load-more-container:not([style*="display: none"])');
+        
+        loadMoreContainers.forEach(function(container) {
+            var rect = container.getBoundingClientRect();
+            if (rect.top < window.innerHeight + 500) {
+                loading = true;
+                var panel = container.closest('.panel');
+                var containerId = panel.closest('.tab-content').parentElement.id;
+                var category = panel.dataset.category;
+                
+                loadMorePosts(containerId, category);
+                loading = false;
+            }
+        });
+    });
+}   
+</script>
+<style>
+    .content-section{
+        display:grid;
+        overflow: scroll;
+        height: auto;
+    }
+</style>
+
+</body>
+</html>

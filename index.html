@@ -49,7 +49,7 @@
             padding-top: var(--header-height);
         }
 
-        /* الهيدر على شكل فيسبوك */
+        /* الهيدر */
         header {
             background-color: var(--fb-card-bg);
             color: var(--fb-text-primary);
@@ -72,13 +72,21 @@
             justify-content: space-between;
             align-items: center;
             height: 100%;
-            margin-bottom:40px;
+            margin-bottom: 40px;
         }
+
         h1 { 
- color: #288BFF!important;
+            color: #288BFF !important;
+            font-size: 2rem;
+            margin-bottom: 1rem;
         }
-       h2{color:#1642B4 !important;}
-       
+
+        h2 {
+            color: #1642B4 !important;
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
         .logo {
             display: flex;
             align-items: center;
@@ -97,7 +105,7 @@
             object-fit: cover;
         }
 
-        /* شريط البحث على شكل فيسبوك */
+        /* شريط البحث */
         .search-container {
             position: relative;
             width: 100%;
@@ -136,7 +144,7 @@
             padding: 8px;
         }
 
-        /* القائمة على شكل فيسبوك */
+        /* القائمة */
         nav.menu {
             background-color: var(--fb-card-bg);
             position: fixed;
@@ -184,7 +192,7 @@
             background-color: rgba(0, 0, 0, 0.03);
         }
 
-        /* المحتوى الرئيسي على شكل فيسبوك */
+        /* المحتوى الرئيسي */
         main {
             max-width: 1200px;
             margin: 20px auto;
@@ -194,7 +202,7 @@
             gap: 20px;
         }
 
-        /* العمود الأيسر - مشابه لفيسبوك */
+        /* العمود الأيسر */
         .left-sidebar {
             position: sticky;
             top: calc(var(--header-height) + 50px);
@@ -252,7 +260,7 @@
             color: var(--fb-blue);
         }
 
-        /* منشورات المدونة على شكل فيسبوك */
+        /* منشورات المدونة */
         .content-column {
             display: flex;
             flex-direction: column;
@@ -264,10 +272,16 @@
             border-radius: var(--fb-border-radius);
             box-shadow: var(--fb-shadow);
             overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .post-header {
-          margin:40px auto;
+            margin: 40px auto;
             display: flex;
             align-items: center;
             padding: 12px 16px;
@@ -319,7 +333,7 @@
         }
 
         .post-content {
-            margin:40px auto;
+            margin: 40px auto;
             padding: 0 16px 12px;
         }
 
@@ -335,6 +349,11 @@
             max-height: 500px;
             object-fit: cover;
             margin-bottom: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .post-image:hover {
+            transform: scale(1.02);
         }
 
         .post-stats {
@@ -391,7 +410,7 @@
             font-size: 18px;
         }
 
-        /* العمود الأيمن - مشابه لفيسبوك */
+        /* العمود الأيمن */
         .right-sidebar {
             position: sticky;
             top: calc(var(--header-height) + 50px);
@@ -427,6 +446,7 @@
 
         .sponsored-item:hover {
             background-color: var(--fb-light);
+            transform: translateX(-5px);
         }
 
         .sponsored-image {
@@ -435,6 +455,11 @@
             border-radius: var(--fb-border-radius);
             object-fit: cover;
             margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .sponsored-item:hover .sponsored-image {
+            transform: scale(1.05);
         }
 
         .sponsored-info {
@@ -654,7 +679,7 @@
             font-weight: 500;
         }
 
-        /* الفوتر على شكل فيسبوك */
+        /* الفوتر */
         footer {
             background-color: var(--fb-card-bg);
             color: var(--fb-text-primary);
@@ -780,7 +805,7 @@
             border-top: 1px solid var(--fb-divider);
             color: var(--fb-text-secondary);
             font-size: 13px;
-            color:red;
+            color: red;
             grid-column: 1 / -1;
         }
 
@@ -819,6 +844,85 @@
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* أنماط زر شاهد المزيد */
+        .load-more-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px 0;
+        }
+
+        .load-more-btn {
+            background-color: var(--fb-blue);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: var(--fb-border-radius);
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--fb-transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .load-more-btn:hover {
+            background-color: var(--fb-blue-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .load-more-btn:disabled {
+            background-color: var(--fb-light);
+            color: var(--fb-text-secondary);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .loading-spinner {
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            display: none;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* تحسينات للوصول */
+        .keyboard-nav a:focus,
+        .keyboard-nav button:focus,
+        .keyboard-nav input:focus,
+        .keyboard-nav select:focus,
+        .keyboard-nav textarea:focus {
+            outline: 2px solid var(--fb-blue);
+            outline-offset: 2px;
+        }
+        
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* تأثيرات الظهور */
+        .panel li.visible,
+        .sitemap-item.visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
         }
 
         /* التكيف مع الشاشات المختلفة */
@@ -1107,8 +1211,8 @@
     <!-- الهيدر -->
     <header>
         <div class="header-container">
-            <a href="https://blogger.googleusercontent.com/img/a/AVvXsEhP7GlN0iu42S8TPnGqW8hd7qz09G5PAyihW0PHc69WGAGCR74foCajGz50u1CnCLA-sNzKLqHLJr0OfES6865fdzfdciIZxKiO81O7v1oFuUNOcy7x00QFC0HtPFUeK5wl_OxIIncwUOUJmsjJzLFhpCF-n6EXH5XvUnpBZ2MygnP_KMnm8LfH91opK52d=s150" class="logo">
-                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhP7GlN0iu42S8TPnGqW8hd7qz09G5PAyihW0PHc69WGAGCR74foCajGz50u1CnCLA-sNzKLqHLJr0OfES6865fdzfdciIZxKiO81O7v1oFuUNOcy7x00QFC0HtPFUeK5wl_OxIIncwUOUJmsjJzLFhpCF-n6EXH5XvUnpBZ2MygnP_KMnm8LfH91opK52d=s150" alt="شعار مدونة العرائش التقنية" loading="lazy">
+            <a href="/مدونة العرائش التقنية 1logo.png" class="logo">
+                <img src="/مدونة العرائش التقنية 1logo.png" alt="شعار مدونة العرائش التقنية" loading="lazy">
                 <span>العرائش التقنية</span>
             </a>
             
@@ -1418,7 +1522,7 @@
             showSummaries: true,
             numChars: 200,
             showThumbnails: true,
-            thumbSize: 60,
+            thumbSize: 400,
             noThumb: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAA3NCSVQICAjb4U/gAAAADElEQVQImWOor68HAAL+AX7vOF2TAAAAAElFTkSuQmCC",
             monthNames: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"],
             newTabLink: false,
@@ -1479,467 +1583,202 @@
                         html += `<li><a onclick="switchTab('${config.containerId}', ${index})" class="${index === config.activeTab - 1 ? 'active-tab' : ''}">${cat.term}</a></li>`;
                     });
                     
-                    html += '</ul></div><div class="tab-content">';
+                    html += '</ul><div class="tab-content">';
                     
                     categories.forEach(function(cat, catIndex) {
-                        html += `<ol class="panel" data-category="${cat.term}" ${catIndex !== config.activeTab - 1 ? 'style="display:none;"' : ''}>`;
-                        
-                        entries.forEach(function(entry) {
-                            var entryLink = '';
-                            var entryDate = '';
-                            var commentsCount = '0 تعليق';
-                            
-                            // البحث عن رابط المقال
-                            for (var i = 0; i < entry.link.length; i++) {
-                                if (entry.link[i].rel === "alternate") {
-                                    entryLink = entry.link[i].href;
-                                    break;
-                                }
-                            }
-                            
-                            // عدد التعليقات
-                            if (entry.thr$total && entry.thr$total.$t) {
-                                commentsCount = entry.thr$total.$t + ' تعليق';
-                            }
-                            
-                            // تنسيق التاريخ
-                            if (config.showDates) {
-                                var pubDate = new Date(entry.published.$t);
-                                var day = pubDate.getDate();
-                                var month = config.monthNames[pubDate.getMonth()];
-                                var year = pubDate.getFullYear();
-                                entryDate = `<time datetime="${entry.published.$t}">${day} ${month} ${year}</time>`;
-                            }
-                            
-                            // عرض الصورة المصغرة
-                            var thumbnail = getPostThumbnail(entry, config.thumbSize);
-                            
-                            // عرض الملخص
-                            var summary = '';
-                            if (config.showSummaries && entry.summary) {
-                                summary = entry.summary.$t.replace(/<[^>]*>/g, '').substring(0, config.numChars) + '...';
-                            }
-                            
-                            // التحقق من تصنيف المقال
-                            if (entry.category) {
-                                entry.category.forEach(function(entryCat) {
-                                    if (entryCat.term === cat.term) {
-                                        html += `
-                                            <li class="post-item">
-                                                ${thumbnail ? `
-                                                <div class="post-thumbnail">
-                                                    <img src="${thumbnail}" alt="${entry.title.$t}" loading="lazy">
-                                                </div>
-                                                ` : ''}
-                                                <a href="${entryLink}" class="post-title">${entry.title.$t}</a>
-                                                <div class="post-meta">
-                                                    ${entryDate ? entryDate : ''}
-                                                    <span class="post-comments">${commentsCount}</span>
-                                                </div>
-                                                ${summary ? `<div class="post-summary">${summary}</div>` : ''}
-                                            </li>
-                                        `;
-                                    }
-                                });
-                            }
+                        var categoryEntries = entries.filter(function(entry) {
+                            return entry.category && entry.category.some(function(entryCat) {
+                                return entryCat.term === cat.term;
+                            });
                         });
                         
-                        html += '</ol>';
+                        html += `<div class="panel" data-category="${cat.term}" ${catIndex !== config.activeTab - 1 ? 'style="display:none;"' : ''}
+                                  data-entries='${JSON.stringify(categoryEntries)}' data-loaded="0">
+                                    <div class="posts-container"></div>
+                                    <div class="load-more-container">
+                                        <button class="load-more-btn" onclick="loadMorePosts('${config.containerId}', '${cat.term}')">
+                                            ${loadMoreConfig.loadMoreText}
+                                            <div class="loading-spinner"></div>
+                                        </button>
+                                    </div>
+                                </div>`;
                     });
                     
-                    html += '</div>';
-                } else {
-                    // واجهة أبسط للأقسام
-                    html += '<div class="sitemapBox"><h4 class="sitemapTitle">الأقسام</h4><div class="sitemapContent"><ol>';
+                    html += '</div></div>';
+                    container.innerHTML = html;
                     
+                    // تحميل الدفعة الأولى لكل قسم
                     categories.forEach(function(cat) {
-                        html += `<li><a href="/search/label/${encodeURIComponent(cat.term)}">${cat.term}</a></li>`;
+                        loadMorePosts(config.containerId, cat.term, true);
                     });
                     
-                    html += '</ol></div></div>';
+                    // إضافة التحميل التلقائي عند التمرير
+                    if (loadMoreConfig.autoLoad) {
+                        setupInfiniteScroll();
+                    }
                 }
                 
-                container.innerHTML = html;
                 initScrollEffects();
             };
             
             var script = document.createElement("script");
             script.src = `${config.blogUrl}/feeds/posts/summary?alt=json-in-script&max-results=${config.maxResults}&orderby=${config.sortAlphabetically ? 'updated' : 'published'}&callback=${config.jsonCallback}`;
-            
-            if (config.delayLoading === "onload") {
-                window.onload = function() {
-                    head.appendChild(script);
-                };
-            } else {
-                setTimeout(function() {
-                    head.appendChild(script);
-                }, config.delayLoading);
-            }
+            head.appendChild(script);
         }
 
-        // دالة للحصول على صورة المقال
-        function getPostThumbnail(entry, size = 400) {
-            if (entry.media$thumbnail) {
-                return entry.media$thumbnail.url.replace(/\/s\d+-c\//, `/s${size}-c/`);
+        // دالة تحميل المزيد من المقالات
+        function loadMorePosts(containerId, category, isInitialLoad = false) {
+            var panel = document.querySelector(`#${containerId} .panel[data-category="${category}"]`);
+            var btn = panel.querySelector('.load-more-btn');
+            var spinner = panel.querySelector('.loading-spinner');
+            var postsContainer = panel.querySelector('.posts-container');
+            
+            var entries = JSON.parse(panel.dataset.entries);
+            var loadedCount = parseInt(panel.dataset.loaded);
+            var totalCount = entries.length;
+            
+            // إذا كانت كل المقالات معروضة بالفعل
+            if (loadedCount >= totalCount) {
+                panel.querySelector('.load-more-container').style.display = 'none';
+                return;
             }
             
-            // البحث عن صورة في محتوى المقال إذا لم يكن هناك صورة مصغرة
-            const content = entry.content ? entry.content.$t : '';
-            if (content) {
-                const imgMatch = content.match(/<img[^>]+src="([^">]+)"/);
-                if (imgMatch && imgMatch[1]) {
-                    return imgMatch[1];
-                }
-            }
+            // عرض حالة التحميل
+            btn.disabled = true;
+            btn.innerHTML = `${loadMoreConfig.loadingText} <div class="loading-spinner" style="display:inline-block;"></div>`;
             
-            // صورة افتراضية إذا لم توجد صورة
-            return 'https://via.placeholder.com/' + size + 'x' + Math.round(size*0.75) + '?text=لا+توجد+صورة';
-        }
-
-        // تحميل خريطة الموقع
-        function loadSitemap() {
-            var container = document.getElementById(sitemapConfig.containerId);
-            var head = document.getElementsByTagName("head")[0];
-            
-            window[sitemapConfig.jsonCallback] = function(data) {
-                var entries = data.feed.entry || [];
-                var categories = data.feed.category || [];
+            // محاكاة التأخير (يمكن إزالته في الإنتاج)
+            setTimeout(function() {
+                // حساب المقالات الجديدة لتحميلها
+                var nextCount = loadedCount + loadMoreConfig.itemsPerLoad;
+                var postsToShow = entries.slice(loadedCount, nextCount);
+                
+                // عرض المقالات الجديدة
                 var html = '';
-                
-                // إضافة علامة "جديد" إذا تم التفعيل
-                if (sitemapConfig.showNew && sitemapConfig.showNew > 0) {
-                    for (var i = 0; i < Math.min(sitemapConfig.showNew, entries.length); i++) {
-                        entries[i].title.$t += ' %new%';
-                    }
-                }
-                
-                // ترتيب المحتوى
-                if (sitemapConfig.sortAlphabetically.theList) {
-                    entries = entries.sort(function(a, b) {
-                        return a.title.$t.localeCompare(b.title.$t);
-                    });
-                }
-                
-                if (sitemapConfig.sortAlphabetically.thePanel) {
-                    categories = categories.sort(function(a, b) {
-                        return a.term.localeCompare(b.term);
-                    });
-                }
-                
-                // بناء خريطة الموقع
-                categories.forEach(function(cat) {
-                    html += `<div class="sitemapBox">
-                        <h4 class="sitemapTitle">${cat.term}</h4>
-                        <div class="sitemapContent">
-                            <div class="sitemap-grid">`;
-                    
-                    entries.forEach(function(entry) {
-                        var entryLink = '';
-                        
-                        // البحث عن رابط المقال
-                        for (var i = 0; i < entry.link.length; i++) {
-                            if (entry.link[i].rel === "alternate") {
-                                entryLink = entry.link[i].href;
-                                break;
-                            }
-                        }
-                        
-                        // التحقق من تصنيف المقال
-                        if (entry.category) {
-                            entry.category.forEach(function(entryCat) {
-                                if (entryCat.term === cat.term) {
-                                    const thumbnail = getPostThumbnail(entry, 400);
-                                    html += `
-                                        <div class="sitemap-item">
-                                            <a href="${entryLink}" class="sitemap-link">
-                                                <div class="sitemap-thumbnail">
-                                                    <img src="${thumbnail}" alt="${entry.title.$t}" loading="lazy">
-                                                </div>
-                                                <span class="sitemap-title">${entry.title.$t.replace(/ %new%$/, '')}</span>
-                                            </a>
-                                        </div>
-                                    `;
-                                }
-                            });
-                        }
-                    });
-                    
-                    html += `</div>
-                        </div>
-                    </div>`;
+                postsToShow.forEach(function(entry) {
+                    html += generatePostHtml(entry);
                 });
                 
-                container.innerHTML = html;
-                initScrollEffects();
-            };
-            
-            var script = document.createElement("script");
-            script.src = `https://greatxenforo.blogspot.com/feeds/posts/summary?alt=json-in-script&max-results=9999&callback=${sitemapConfig.jsonCallback}`;
-            
-            if (sitemapConfig.delayLoading === "onload") {
-                window.onload = function() {
-                    head.appendChild(script);
-                };
-            } else {
-                setTimeout(function() {
-                    head.appendChild(script);
-                }, sitemapConfig.delayLoading);
-            }
-        }
-
-        // تبديل التبويبات
-        window.switchTab = function(containerId, tabIndex) {
-            var container = document.getElementById(containerId);
-            var tabs = container.querySelectorAll('.tab-tabs li a');
-            var panels = container.querySelectorAll('.panel');
-            
-            tabs.forEach(tab => tab.classList.remove('active-tab'));
-            panels.forEach(panel => panel.style.display = 'none');
-            
-            tabs[tabIndex].classList.add('active-tab');
-            panels[tabIndex].style.display = 'block';
-        };
-
-        // البحث (وظيفة تجريبية)
-        const searchInput = document.querySelector('.search-input');
-        const searchButton = document.querySelector('.search-button');
-        
-        searchButton.addEventListener('click', () => {
-            if (searchInput.value.trim()) {
-                window.location.href = `/search?q=${encodeURIComponent(searchInput.value)}`;
-            }
-        });
-        
-        searchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter' && searchInput.value.trim()) {
-                window.location.href = `/search?q=${encodeURIComponent(searchInput.value)}`;
-            }
-        });
-    </script>
-    <style>
-        /* تحسينات للوصول */
-        .keyboard-nav a:focus,
-        .keyboard-nav button:focus,
-        .keyboard-nav input:focus,
-        .keyboard-nav select:focus,
-        .keyboard-nav textarea:focus {
-            outline: 2px solid var(--fb-blue);
-            outline-offset: 2px;
-        }
-        
-        .visually-hidden {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-        
-        /* تأثيرات الظهور */
-        .panel li.visible,
-        .sitemap-item.visible {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
-    </style>
-    <script>
-        // نظام Spicetab للأقسام
-        var categoriesTabConfig = {
-            blogUrl: "https://greatxenforo.blogspot.com/",
-            containerId: "categories-tab",
-            activeTab: 1,
-            showDates: true,
-            showSummaries: true,
-            numChars: 200,
-            showThumbnails: true,
-            thumbSize: 400, // حجم أكبر للصور
-            noThumb: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAA3NCSVQICAjb4U/gAAAADElEQVQImWOor68HAAL+AX7vOF2TAAAAAElFTkSuQmCC",
-            monthNames: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"],
-            newTabLink: false,
-            maxResults: 99999,
-            preload: 0,
-            sortAlphabetically: true,
-            showNew: false
-        };
-
-        // تحميل الأنظمة
-        function loadTabSystem(config) {
-            var container = document.getElementById(config.containerId);
-            var head = document.getElementsByTagName("head")[0];
-            var labels = [];
-            
-            window[config.jsonCallback] = function(data) {
-                var entries = data.feed.entry || [];
-                var categories = data.feed.category || [];
-                var html = '';
-                
-                // إضافة علامة "جديد" للمقالات الحديثة
-                if (config.showNew && config.showNew > 0) {
-                    for (var i = 0; i < Math.min(config.showNew, entries.length); i++) {
-                        entries[i].title.$t += config.newText;
-                    }
-                }
-                
-                // ترتيب المقالات
-                if (config.sortAlphabetically) {
-                    entries = entries.sort(function(a, b) {
-                        return a.title.$t.localeCompare(b.title.$t);
-                    });
-                    categories = categories.sort(function(a, b) {
-                        return a.term.localeCompare(b.term);
-                    });
-                }
-                
-                // بناء واجهة التبويبات
-                if (config.showSummaries) {
-                    html += '<div class="tab-tabs"><ul>';
-                    
-                    categories.forEach(function(cat, index) {
-                        labels.push(cat.term);
-                        html += `<li><a onclick="switchTab('${config.containerId}', ${index})" class="${index === config.activeTab - 1 ? 'active-tab' : ''}">${cat.term}</a></li>`;
-                    });
-                    
-                    html += '</ul></div><div class="tab-content">';
-                    
-                    categories.forEach(function(cat, catIndex) {
-                        html += `<ol class="panel" data-category="${cat.term}" ${catIndex !== config.activeTab - 1 ? 'style="display:none;"' : ''}>`;
-                        
-                        entries.forEach(function(entry) {
-                            var entryLink = '';
-                            var entryDate = '';
-                            var commentsCount = '0 تعليق';
-                            
-                            // البحث عن رابط المقال
-                            for (var i = 0; i < entry.link.length; i++) {
-                                if (entry.link[i].rel === "alternate") {
-                                    entryLink = entry.link[i].href;
-                                    break;
-                                }
-                            }
-                            
-                            // عدد التعليقات
-                            if (entry.thr$total && entry.thr$total.$t) {
-                                commentsCount = entry.thr$total.$t + ' تعليق';
-                            }
-                            
-                            // تنسيق التاريخ
-                            if (config.showDates) {
-                                var pubDate = new Date(entry.published.$t);
-                                var day = pubDate.getDate();
-                                var month = config.monthNames[pubDate.getMonth()];
-                                var year = pubDate.getFullYear();
-                                entryDate = `<time datetime="${entry.published.$t}">${day} ${month} ${year}</time>`;
-                            }
-                            
-                            // عرض الصورة المصغرة
-                            var thumbnail = getPostThumbnail(entry, config.thumbSize);
-                            
-                            // عرض الملخص
-                            var summary = '';
-                            if (config.showSummaries && entry.summary) {
-                                summary = entry.summary.$t.replace(/<[^>]*>/g, '').substring(0, config.numChars) + '...';
-                            }
-                            
-                            // التحقق من تصنيف المقال
-                            if (entry.category) {
-                                entry.category.forEach(function(entryCat) {
-                                    if (entryCat.term === cat.term) {
-                                        // استخدام تصميم منشور فيسبوك بدلاً من التصميم القديم
-                                        html += `
-                                            <li class="post-card" style="margin-bottom: 16px;">
-                                                <div class="post-header">
-                                                    <img src="/مدونة العرائش التقنية 1logo.png" alt="صورة المدونة" class="post-avatar">
-                                                    <div class="post-author">
-                                                        <div class="post-author-name">مدونة العرائش التقنية</div>
-                                                        <div class="post-time"><i class="far fa-clock"></i> ${entryDate}</div>
-                                                    </div>
-                                                    <div class="post-more">
-                                                        <i class="fas fa-ellipsis-h"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="post-content">
-                                                    ${thumbnail ? `
-                                                    <img src="${thumbnail}" alt="${entry.title.$t}" class="post-image" loading="lazy">
-                                                    ` : ''}
-                                                    <div class="post-text">
-                                                        <a href="${entryLink}" class="post-title" style="font-size: 18px; margin-bottom: 8px; display: block;">${entry.title.$t}</a>
-                                                        ${summary ? `<p class="post-summary">${summary}</p>` : ''}
-                                                    </div>
-                                                </div>
-                                                <div class="post-stats">
-                                                    <div class="post-likes">
-                                                        <i class="fas fa-thumbs-up"></i> 0
-                                                    </div>
-                                                    <div class="post-comments-count">${commentsCount}</div>
-                                                </div>
-                                                <div class="post-actions">
-                                                    <div class="post-action">
-                                                        <i class="far fa-thumbs-up"></i> أعجبني
-                                                    </div>
-                                                    <div class="post-action">
-                                                        <i class="far fa-comment"></i> تعليق
-                                                    </div>
-                                                    <div class="post-action">
-                                                        <i class="fas fa-share"></i> مشاركة
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        `;
-                                    }
-                                });
-                            }
-                        });
-                        
-                        html += '</ol>';
-                    });
-                    
-                    html += '</div>';
+                if (isInitialLoad) {
+                    postsContainer.innerHTML = html;
                 } else {
-                    // واجهة أبسط للأقسام
-                    html += '<div class="sitemapBox"><h4 class="sitemapTitle">الأقسام</h4><div class="sitemapContent"><ol>';
-                    
-                    categories.forEach(function(cat) {
-                        html += `<li><a href="/search/label/${encodeURIComponent(cat.term)}">${cat.term}</a></li>`;
-                    });
-                    
-                    html += '</ol></div></div>';
+                    postsContainer.insertAdjacentHTML('beforeend', html);
                 }
                 
-                container.innerHTML = html;
+                // تحديث العداد
+                panel.dataset.loaded = nextCount;
+                
+                // إخفاء الزر إذا تم عرض كل المقالات
+                if (nextCount >= totalCount) {
+                    panel.querySelector('.load-more-container').style.display = 'none';
+                }
+                
+                // إعادة تعيين الزر
+                btn.disabled = false;
+                btn.innerHTML = `${loadMoreConfig.loadMoreText} <div class="loading-spinner"></div>`;
+                
+                // تطبيق تأثيرات الظهور على العناصر الجديدة
                 initScrollEffects();
-            };
-            
-            var script = document.createElement("script");
-            script.src = `${config.blogUrl}/feeds/posts/summary?alt=json-in-script&max-results=${config.maxResults}&orderby=${config.sortAlphabetically ? 'updated' : 'published'}&callback=${config.jsonCallback}`;
-            
-            if (config.delayLoading === "onload") {
-                window.onload = function() {
-                    head.appendChild(script);
-                };
-            } else {
-                setTimeout(function() {
-                    head.appendChild(script);
-                }, config.delayLoading);
-            }
+            }, 600);
         }
 
-        // نظام Sitemap
-        var sitemapConfig = {
-            containerId: 'sitemaps', 
-            showNew: 0, 
-            sortAlphabetically: {thePanel: true, theList: true}, 
-            activePanel: 1, 
-            slideSpeed: {down: 400, up: 400}, 
-            slideEasing: {down: null, up: null}, 
-            slideCallback: {down: function(){}, up: function(){}}, 
-            clickCallback: function(){}, 
-            jsonCallback: 'sitemaps',
-            delayLoading: 0
-        };
+        // دالة إنشاء HTML للمقالة
+        function generatePostHtml(entry) {
+            var entryLink = '';
+            var entryDate = '';
+            var commentsCount = '0 تعليق';
+            
+            // البحث عن رابط المقال
+            for (var i = 0; i < entry.link.length; i++) {
+                if (entry.link[i].rel === "alternate") {
+                    entryLink = entry.link[i].href;
+                    break;
+                }
+            }
+            
+            // عدد التعليقات
+            if (entry.thr$total && entry.thr$total.$t) {
+                commentsCount = entry.thr$total.$t + ' تعليق';
+            }
+            
+            // تنسيق التاريخ
+            var pubDate = new Date(entry.published.$t);
+            var day = pubDate.getDate();
+            var month = ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"][pubDate.getMonth()];
+            var year = pubDate.getFullYear();
+            entryDate = `${day} ${month} ${year}`;
+            
+            // عرض الصورة المصغرة
+            var thumbnail = getPostThumbnail(entry, 400);
+            
+            // عرض الملخص
+            var summary = '';
+            if (entry.summary) {
+                summary = entry.summary.$t.replace(/<[^>]*>/g, '').substring(0, 200) + '...';
+            }
+            
+            return `
+                <div class="post-card" style="margin-bottom: 16px;">
+                    <div class="post-header">
+                        <img src="/مدونة العرائش التقنية 1logo.png" alt="صورة المدونة" class="post-avatar">
+                        <div class="post-author">
+                            <div class="post-author-name">مدونة العرائش التقنية</div>
+                            <div class="post-time"><i class="far fa-clock"></i> ${entryDate}</div>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        ${thumbnail ? `
+                        <img src="${thumbnail}" alt="${entry.title.$t}" class="post-image" loading="lazy">
+                        ` : ''}
+                        <div class="post-text">
+                            <a href="${entryLink}" class="post-title" style="font-size: 18px; margin-bottom: 8px; display: block;">${entry.title.$t}</a>
+                            ${summary ? `<p class="post-summary">${summary}</p>` : ''}
+                        </div>
+                    </div>
+                    <div class="post-stats">
+                        <div class="post-likes">
+                            <i class="fas fa-thumbs-up"></i> 0
+                        </div>
+                        <div class="post-comments-count">${commentsCount}</div>
+                    </div>
+                    <div class="post-actions">
+                        <div class="post-action">
+                            <i class="far fa-thumbs-up"></i> أعجبني
+                        </div>
+                        <div class="post-action">
+                            <i class="far fa-comment"></i> تعليق
+                        </div>
+                        <div class="post-action">
+                            <i class="fas fa-share"></i> مشاركة
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // إعداد التحميل التلقائي عند التمرير
+        function setupInfiniteScroll() {
+            var loading = false;
+            
+            window.addEventListener('scroll', function() {
+                if (loading) return;
+                
+                var loadMoreContainers = document.querySelectorAll('.load-more-container:not([style*="display: none"])');
+                
+                loadMoreContainers.forEach(function(container) {
+                    var rect = container.getBoundingClientRect();
+                    if (rect.top < window.innerHeight + 500) {
+                        loading = true;
+                        var panel = container.closest('.panel');
+                        var containerId = panel.closest('.tab-content').parentElement.id;
+                        var category = panel.dataset.category;
+                        
+                        loadMorePosts(containerId, category);
+                        loading = false;
+                    }
+                });
+            });
+        }
 
         // تحميل خريطة الموقع
         function loadSitemap() {
@@ -2050,314 +1889,56 @@
             
             var script = document.createElement("script");
             script.src = `https://greatxenforo.blogspot.com/feeds/posts/summary?alt=json-in-script&max-results=9999&callback=${sitemapConfig.jsonCallback}`;
-            
-            if (sitemapConfig.delayLoading === "onload") {
-                window.onload = function() {
-                    head.appendChild(script);
-                };
-            } else {
-                setTimeout(function() {
-                    head.appendChild(script);
-                }, sitemapConfig.delayLoading);
+            head.appendChild(script);
+        }
+
+        // دالة للحصول على صورة المقال
+        function getPostThumbnail(entry, size = 400) {
+            if (entry.media$thumbnail) {
+                return entry.media$thumbnail.url.replace(/\/s\d+-c\//, `/s${size}-c/`);
             }
-        }
-</script>
-<style>
-  /* أنماط زر شاهد المزيد */
-.load-more-container {
-    text-align: center;
-    margin: 30px 0;
-    padding: 20px 0;
-}
-
-.load-more-btn {
-    background-color: var(--fb-blue);
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: var(--fb-border-radius);
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--fb-transition);
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.load-more-btn:hover {
-    background-color: var(--fb-blue-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.load-more-btn:disabled {
-    background-color: var(--fb-light);
-    color: var(--fb-text-secondary);
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-}
-
-.loading-spinner {
-    width: 16px;
-    height: 16px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-top-color: white;
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-    display: none;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}  
-    
-</style>
-<script>
-    
- // إعدادات التحميل التلقائي
-var loadMoreConfig = {
-    itemsPerLoad: 5, // عدد العناصر في كل تحميل
-    loadingText: "جاري التحميل...",
-    loadMoreText: "شاهد المزيد",
-    autoLoad: true // التحميل التلقائي عند الوصول لأسفل الصفحة
-};
-
-// تعديل دالة loadTabSystem
-function loadTabSystem(config) {
-    var container = document.getElementById(config.containerId);
-    var head = document.getElementsByTagName("head")[0];
-    var labels = [];
-    
-    window[config.jsonCallback] = function(data) {
-        var allEntries = data.feed.entry || [];
-        var categories = data.feed.category || [];
-        var html = '';
-        
-        // ترتيب المقالات
-        if (config.sortAlphabetically) {
-            allEntries = allEntries.sort(function(a, b) {
-                return a.title.$t.localeCompare(b.title.$t);
-            });
-            categories = categories.sort(function(a, b) {
-                return a.term.localeCompare(b.term);
-            });
-        }
-        
-        // بناء واجهة التبويبات
-        if (config.showSummaries) {
-            html += '<div class="tab-tabs"><ul>';
             
-            categories.forEach(function(cat, index) {
-                labels.push(cat.term);
-                html += `<li><a onclick="switchTab('${config.containerId}', ${index})" class="${index === config.activeTab - 1 ? 'active-tab' : ''}">${cat.term}</a></li>`;
-            });
-            
-            html += '</ul><div class="tab-content">';
-            
-            categories.forEach(function(cat, catIndex) {
-                var categoryEntries = allEntries.filter(function(entry) {
-                    return entry.category && entry.category.some(function(entryCat) {
-                        return entryCat.term === cat.term;
-                    });
-                });
-                
-                html += `<div class="panel" data-category="${cat.term}" ${catIndex !== config.activeTab - 1 ? 'style="display:none;"' : ''}
-                          data-entries='${JSON.stringify(categoryEntries)}' data-loaded="0">
-                            <div class="posts-container"></div>
-                            <div class="load-more-container">
-                                <button class="load-more-btn" onclick="loadMorePosts('${config.containerId}', '${cat.term}')">
-                                    ${loadMoreConfig.loadMoreText}
-                                    <div class="loading-spinner"></div>
-                                </button>
-                            </div>
-                        </div>`;
-            });
-            
-            html += '</div></div>';
-            container.innerHTML = html;
-            
-            // تحميل الدفعة الأولى لكل قسم
-            categories.forEach(function(cat) {
-                loadMorePosts(config.containerId, cat.term, true);
-            });
-            
-            // إضافة التحميل التلقائي عند التمرير
-            if (loadMoreConfig.autoLoad) {
-                setupInfiniteScroll();
+            // البحث عن صورة في محتوى المقال إذا لم يكن هناك صورة مصغرة
+            const content = entry.content ? entry.content.$t : '';
+            if (content) {
+                const imgMatch = content.match(/<img[^>]+src="([^">]+)"/);
+                if (imgMatch && imgMatch[1]) {
+                    return imgMatch[1];
+                }
             }
+            
+            // صورة افتراضية إذا لم توجد صورة
+            return 'https://via.placeholder.com/' + size + 'x' + Math.round(size*0.75) + '?text=لا+توجد+صورة';
         }
-        
-        initScrollEffects();
-    };
-    
-    var script = document.createElement("script");
-    script.src = `${config.blogUrl}/feeds/posts/summary?alt=json-in-script&max-results=${config.maxResults}&orderby=${config.sortAlphabetically ? 'updated' : 'published'}&callback=${config.jsonCallback}`;
-    head.appendChild(script);
-}
 
-// دالة تحميل المزيد من المقالات
-function loadMorePosts(containerId, category, isInitialLoad = false) {
-    var panel = document.querySelector(`#${containerId} .panel[data-category="${category}"]`);
-    var btn = panel.querySelector('.load-more-btn');
-    var spinner = panel.querySelector('.loading-spinner');
-    var postsContainer = panel.querySelector('.posts-container');
-    
-    var entries = JSON.parse(panel.dataset.entries);
-    var loadedCount = parseInt(panel.dataset.loaded);
-    var totalCount = entries.length;
-    
-    // إذا كانت كل المقالات معروضة بالفعل
-    if (loadedCount >= totalCount) {
-        panel.querySelector('.load-more-container').style.display = 'none';
-        return;
-    }
-    
-    // عرض حالة التحميل
-    btn.disabled = true;
-    btn.innerHTML = `${loadMoreConfig.loadingText} <div class="loading-spinner" style="display:inline-block;"></div>`;
-    
-    // محاكاة التأخير (يمكن إزالته في الإنتاج)
-    setTimeout(function() {
-        // حساب المقالات الجديدة لتحميلها
-        var nextCount = loadedCount + loadMoreConfig.itemsPerLoad;
-        var postsToShow = entries.slice(loadedCount, nextCount);
-        
-        // عرض المقالات الجديدة
-        var html = '';
-        postsToShow.forEach(function(entry) {
-            html += generatePostHtml(entry);
-        });
-        
-        if (isInitialLoad) {
-            postsContainer.innerHTML = html;
-        } else {
-            postsContainer.insertAdjacentHTML('beforeend', html);
-        }
-        
-        // تحديث العداد
-        panel.dataset.loaded = nextCount;
-        
-        // إخفاء الزر إذا تم عرض كل المقالات
-        if (nextCount >= totalCount) {
-            panel.querySelector('.load-more-container').style.display = 'none';
-        }
-        
-        // إعادة تعيين الزر
-        btn.disabled = false;
-        btn.innerHTML = `${loadMoreConfig.loadMoreText} <div class="loading-spinner"></div>`;
-        
-        // تطبيق تأثيرات الظهور على العناصر الجديدة
-        initScrollEffects();
-    }, 600);
-}
+        // تبديل التبويبات
+        window.switchTab = function(containerId, tabIndex) {
+            var container = document.getElementById(containerId);
+            var tabs = container.querySelectorAll('.tab-tabs li a');
+            var panels = container.querySelectorAll('.panel');
+            
+            tabs.forEach(tab => tab.classList.remove('active-tab'));
+            panels.forEach(panel => panel.style.display = 'none');
+            
+            tabs[tabIndex].classList.add('active-tab');
+            panels[tabIndex].style.display = 'block';
+        };
 
-// دالة إنشاء HTML للمقالة
-function generatePostHtml(entry) {
-    var entryLink = '';
-    var entryDate = '';
-    var commentsCount = '0 تعليق';
-    
-    // البحث عن رابط المقال
-    for (var i = 0; i < entry.link.length; i++) {
-        if (entry.link[i].rel === "alternate") {
-            entryLink = entry.link[i].href;
-            break;
-        }
-    }
-    
-    // عدد التعليقات
-    if (entry.thr$total && entry.thr$total.$t) {
-        commentsCount = entry.thr$total.$t + ' تعليق';
-    }
-    
-    // تنسيق التاريخ
-    var pubDate = new Date(entry.published.$t);
-    var day = pubDate.getDate();
-    var month = ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"][pubDate.getMonth()];
-    var year = pubDate.getFullYear();
-    entryDate = `${day} ${month} ${year}`;
-    
-    // عرض الصورة المصغرة
-    var thumbnail = getPostThumbnail(entry, 400);
-    
-    // عرض الملخص
-    var summary = '';
-    if (entry.summary) {
-        summary = entry.summary.$t.replace(/<[^>]*>/g, '').substring(0, 200) + '...';
-    }
-    
-    return `
-        <div class="post-card" style="margin-bottom: 16px;">
-            <div class="post-header">
-                <img src="/مدونة العرائش التقنية 1logo.png" alt="صورة المدونة" class="post-avatar">
-                <div class="post-author">
-                    <div class="post-author-name">مدونة العرائش التقنية</div>
-                    <div class="post-time"><i class="far fa-clock"></i> ${entryDate}</div>
-                </div>
-            </div>
-            <div class="post-content">
-                ${thumbnail ? `
-                <img src="${thumbnail}" alt="${entry.title.$t}" class="post-image" loading="lazy">
-                ` : ''}
-                <div class="post-text">
-                    <a href="${entryLink}" class="post-title" style="font-size: 18px; margin-bottom: 8px; display: block;">${entry.title.$t}</a>
-                    ${summary ? `<p class="post-summary">${summary}</p>` : ''}
-                </div>
-            </div>
-            <div class="post-stats">
-                <div class="post-likes">
-                    <i class="fas fa-thumbs-up"></i> 0
-                </div>
-                <div class="post-comments-count">${commentsCount}</div>
-            </div>
-            <div class="post-actions">
-                <div class="post-action">
-                    <i class="far fa-thumbs-up"></i> أعجبني
-                </div>
-                <div class="post-action">
-                    <i class="far fa-comment"></i> تعليق
-                </div>
-                <div class="post-action">
-                    <i class="fas fa-share"></i> مشاركة
-                </div>
-            </div>
-        </div>
-    `;
-}
-
-// إعداد التحميل التلقائي عند التمرير
-function setupInfiniteScroll() {
-    var loading = false;
-    
-    window.addEventListener('scroll', function() {
-        if (loading) return;
+        // البحث (وظيفة تجريبية)
+        const searchInput = document.querySelector('.search-input');
+        const searchButton = document.querySelector('.search-button');
         
-        var loadMoreContainers = document.querySelectorAll('.load-more-container:not([style*="display: none"])');
-        
-        loadMoreContainers.forEach(function(container) {
-            var rect = container.getBoundingClientRect();
-            if (rect.top < window.innerHeight + 500) {
-                loading = true;
-                var panel = container.closest('.panel');
-                var containerId = panel.closest('.tab-content').parentElement.id;
-                var category = panel.dataset.category;
-                
-                loadMorePosts(containerId, category);
-                loading = false;
+        searchButton.addEventListener('click', () => {
+            if (searchInput.value.trim()) {
+                window.location.href = `/search?q=${encodeURIComponent(searchInput.value)}`;
             }
         });
-    });
-}   
-</script>
-<style>
-    .content-section{
-        display:grid;
-        overflow: scroll;
-        height: auto;
-    }
-</style>
-
+        
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && searchInput.value.trim()) {
+                window.location.href = `/search?q=${encodeURIComponent(searchInput.value)}`;
+            }
+        });
+    </script>
 </body>
 </html>
